@@ -6,7 +6,6 @@ figures/fig_initialization_e/default_figure.png
 sectionMethods__subs.tex
 figures/figure_/default_figure.png
 sectionResults__subs.tex
-maybe_discuss_peculi.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 sectionValidation_an.tex
 emphasize_how_really.tex
