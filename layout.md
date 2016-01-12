@@ -8,4 +8,3 @@ figures/figure_/default_figure.png
 sectionResults__subs.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 sectionValidation_an.tex
-emphasize_how_really.tex
