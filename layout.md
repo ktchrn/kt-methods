@@ -1,6 +1,6 @@
 abstract.tex
 sectionIntroduction.tex
-sectionData__subsect.tex
+sectionData.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
 sectionMethods__subs.tex
