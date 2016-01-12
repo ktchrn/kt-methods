@@ -7,5 +7,5 @@ sectionMethods__subs.tex
 figures/figure_/default_figure.png
 SectionResults.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
-sectionValidation_an.tex
+SectionValidation.tex
 SectionConclusion.tex
