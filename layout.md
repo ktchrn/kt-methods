@@ -5,7 +5,7 @@ figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
 sectionMethods__subs.tex
 figures/figure_/default_figure.png
-sectionResults__subs.tex
+SectionResults.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 sectionValidation_an.tex
 SectionConclusion.tex
