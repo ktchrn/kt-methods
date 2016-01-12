@@ -4,8 +4,8 @@ sectionData__subsect.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
 sectionMethods__subs.tex
-sectionResults__subs.tex
 figures/figure_/default_figure.png
+sectionResults__subs.tex
 maybe_discuss_peculi.tex
 sectionValidation_an.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
