@@ -3,7 +3,7 @@ sectionIntroduction.tex
 sectionData.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
-sectionMethods__subs.tex
+SectionMethods.tex
 figures/figure_/default_figure.png
 SectionResults.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
