@@ -1,5 +1,5 @@
 abstract.tex
-sectionIntroduction_.tex
+sectionIntroduction.tex
 sectionData__subsect.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
