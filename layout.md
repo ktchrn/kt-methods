@@ -1,0 +1,15 @@
+abstract.tex
+sectionIntroduction_.tex
+sectionData__subsect.tex
+sectionMethods__subs.tex
+figures/fig_smoothing_effect/default_figure.png
+local_vs_global_solu.tex
+figures/fig_initialization_e/default_figure.png
+subsectionRotation_c.tex
+sectionResults__subs.tex
+figures/figure_/default_figure.png
+maybe_discuss_peculi.tex
+sectionValidation_an.tex
+figures/cl_gd_smooth_maser_comp/default_figure.png
+emphasize_how_really.tex
+.tex
