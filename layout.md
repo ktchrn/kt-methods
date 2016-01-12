@@ -4,7 +4,6 @@ sectionData__subsect.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
 sectionMethods__subs.tex
-subsectionRotation_c.tex
 sectionResults__subs.tex
 figures/figure_/default_figure.png
 maybe_discuss_peculi.tex
