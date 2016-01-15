@@ -22,11 +22,19 @@ CfR's method improves on kinematic distances by treating them as one of a number
 Other context clues include the physical size and height above the galactic plane that a distance would imply given the object's angular size and height above the galactic plane, the presence or absence of H I 21cm self-absorption in the direction of the object, and the distances to any other objects that are known to be close to the object of interest.
 If there are enough context clues, this approach can help resolve the degeneracy between distances that correspond to the same line-of-sight velocity and can be used to detect and measure streaming motions.
 
+If we think of kinematic distances as a somewhat unstable zeroth-order approximation to the distance corresponding to a point in a PPV dataset, CfR's method is a second-order correction with improved stability properties.
+From this perspective, building on CfR's method is unlikely to lead to  significant improvements to their solution.
+Instead, we apply a rudimentary form of their approach to the complementary problem of assigning a velocity to a point in a PPP dataset.
 
-because there have been large IR/optical photometric surveys, there are now also pretty good PPP cubes, which trace out the shape of the ISM in the three spatial dimensions. 
-our thing is taking a PPP cube and doing the complement of what OCP\&R do with PPV cubes -- use "context clues" to figure out their velocities.
-in our case, context clues are (1) PPV cubes; (2) plausible velocity ranges given a distance, rotation curve, and a peculiar velocity distribution; and (3) the velocities of neighboring PPP voxels. 
-a parallel construction -- you have masses at sites in 3-space and you want to assign line-of-site velocities to them in such a way that (1) the resulting PPV cube looks like the actual PPV cube; (2) the velocities make sense given our knowledge of the rotation curve and typical deviations from it; and (3) masses that are nearby in space together will usually have similar velocities.
+With the advent of large optical and near-infrared photometric surveys, it has become possible to build maps of the three-dimensional distribution of dust out several kiloparsecs from the Sun CITE.
+If we make some assumptions about the mixing and relative abundances of dust and gas in the ISM, we can consider these maps to be of the three-dimensional stucture of the ISM. 
+
+To get a zeroth-order velocity for a point in one of these PPP maps, we can take inspiration from kinematic distances and evaluate the galactic rotation curve at its position. 
+Even at this stage, the PPP to PPPV problem has an advantage over the PPV to PPPV problem -- the position to velocity assignment is unique, if not necessarily accurate.
+There are different possible approaches to improving this approximation.
+Our approach is to use a PPV dataset of the ISM over the same area as a guide.
+We have found that reproducing this PPV dataset requires modestly adjusting the velocities assigned to the points in the PPP dataset.
+We believe the resulting velocity assignments give us an accurate map of the ISM in PPPV space.
 
 we need to check our answers
 compare azimuthal averages to old azimuthal averages (rotation curves)
