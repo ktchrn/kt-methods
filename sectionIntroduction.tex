@@ -14,17 +14,14 @@ When a flat rotation curve is assumed, sightlines inside the solar circle and to
 Next, kinematic distances ignore the possibility of deviations from the gas motion model.
 Measurements of the distances and line-of-sight velocities of point-like objects such as masers show that deviations from azimuthally symmetric rotation, or streaming motions, are the norm rather than the exception.
 In some cases, streaming motions can mean that there is no distance corresponding to a given velocity. 
-For example, assuming that all motion is purely rotational means that gas towards the anti-center 
-Finally, computing kinematic distances for an entire PPV dataset yields 
+This is known to happen towards the galactic anti-center CITE and near the galactic center CITE.
+Finally, computing kinematic distances for an entire PPV dataset yields a PPP dataset, trading one map of three-dimensional structure for another.
+Despite these drawbacks, kinematic distances are an adequate estimate of actual distances over much of the galactic plane.
 
-in limited, point-like cases (i.e. masers, UC HII regions), distances can be measured using parallax.
-in other, also limited cases, it's possible to identify a distinct object ("a cloud") and then put bounds on the cloud's distance, typically using absorption measurements. 
-if you have a PPV cube, can trade V for D (for certain $\ell$, b, values) by assuming a rotation curve. 
-this assumes very regular rotation, means you can't answer how the ISM is moving around relative to the rotating frame.
+CfR's method improves on kinematic distances by treating them as one of a number of context clues to the distance to an object.
+Other context clues include the physical size and height above the galactic plane that a distance would imply given the object's angular size and height above the galactic plane, the presence or absence of H I 21cm self-absorption in the direction of the object, and the distances to any other objects that are known to be close to the object of interest.
+If there are enough context clues, this approach can help resolve the degeneracy between distances that correspond to the same line-of-sight velocity and can be used to detect and measure streaming motions.
 
-to get at that sort of question, need to allow deviations from the rotation curve.
-Other CfA Person and Reid have developed a thing that does something kind of like this. 
-combine line-of-sight velocity, plausible peculiar velocity distribution, other information such as neighboring pixel distances, cloud sizes, etc. to get an estimate of the distance to a structure or, optimistically, voxel in a PPV cube.
 
 because there have been large IR/optical photometric surveys, there are now also pretty good PPP cubes, which trace out the shape of the ISM in the three spatial dimensions. 
 our thing is taking a PPP cube and doing the complement of what OCP\&R do with PPV cubes -- use "context clues" to figure out their velocities.
