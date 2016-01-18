@@ -33,12 +33,12 @@ To get a zeroth-order velocity for a point in one of these PPP maps, we can take
 Even at this stage, the PPP to PPPV problem has an advantage over the PPV to PPPV problem -- the position to velocity assignment is unique, if not necessarily accurate.
 There are different possible approaches to improving this approximation.
 Our approach is to use a PPV dataset of the ISM over the same area as a guide.
-We have found that reproducing this PPV dataset requires modestly adjusting the velocities assigned to the points in the PPP dataset.
-We believe the resulting velocity assignments give us an accurate map of the ISM in PPPV space.
+Reproducing this PPV dataset requires modestly adjusting the velocities assigned to the points in the PPP dataset.
+These adjusted velocity assignments are our PPPV map.
 
-we need to check our answers
-compare azimuthal averages to old azimuthal averages (rotation curves)
-compare our velocity to the measured velocity at positions of point-like things for which precise 3-positions and velocities exist (masers)
-very good agreement with point-like comparison, mostly agreement with rotation curves suggests we can probably trust the results
+We have checked this map against the maser measurements in CITET REID (R14). 
+Reid et al. have measured the distance to and line-of-sight velocity of a number of masers.
+Our PPPV map evaluated at the on-sky positions and distances of the masers agrees with the masers' measured line-of-sight velocities.
+This is particularly heartening considering that many of the masers are known to deviate significantly from galactic rotation.
 
-structure of the rest of the paper
+In this work, we describe our method, the map it produces, and our evaluation of this map's accuracy and precision.
