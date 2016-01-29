@@ -14,7 +14,11 @@ We trace molecular gas here using the 115 GHz 1-0 rotational transition of CO. T
 X_{CO} = .
 \end{equation}
 
-This conversion factor has number of known weaknesses, stemming from much more complex excitation and opacity effects, as well as real variation in relative population of CO and $H_2$ molecules. We will address the imapacts of these weakenesses in \S \ref{sec:validation}. 
+This conversion factor has number of known weaknesses, stemming from much more complex excitation and opacity effects, as well as real variation in relative population of CO and $H_2$ molecules. We will address the impacts of these weaknesses in \S \ref{sec:validation}. 
+
+For our CO data, we simply use the interpolated whole Galaxy cube provided by \cite{Dame_2001}. In this text we investigate the Galactic plane, and so we use the sky area provided in this data set, $-30^\circ < b < 30^\circ$, and over the full range of $l$. We retain the $7.5^\prime$ pixels in this map.
+
+For our HI data we use a combination of three large-area Galactic HI surveys. South of declination 0$^\circ$ we use data from the 16$^\prime$ resolution GASS survey \cite{Kalberla_2010}, from declination 0$^\circ$ to 38$^\circ$ we use unpublished data from the 4$^\prime$ resolution GALFA-HI survey Data Release 2, North of 38$^\circ$ we default to the 36$^\prime$ resolution LAB Survey \cite{Kalberla_2005}. We regrid these data onto the $7.5^\prime$ pixels of the \cite{Dame_2001} CO map. 
 
 
 sources and regridding process
