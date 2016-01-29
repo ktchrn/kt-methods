@@ -4,6 +4,7 @@ sectionData.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
 SectionMethods.tex
+figures/gas_compare2/gas_compare2.png
 figures/figure_/default_figure.png
 SectionResults.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
