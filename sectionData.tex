@@ -3,27 +3,34 @@
 \subsection{HI and CO cubes}
 
 Radio emission lines in HI and CO trace the two dominant constituents of the Galctic ISM, atomic and molecular gas. Ionized phases of the ISM do not contribute significantly to the column density, and will therefore not trace the extinction measured in \cite{Green_2015}. 21-cm line emission from the hyperfine transition of HI is usually optically thin and its integral is an excellent tracer of HI column:
-\begin{equation}
+\begin{equation}\label{XHI}
 N_{HI} = 1.8 \times 10^{18} \rm cm^{-2} \frac{ \int T_B dv}{\rm K~km/s}
 \end{equation}
 In some cases the 21-cm line can become optically thick, and thus an underestimate of the HI column, but largely in H$_2$ dominated regions \cite{Goldsmith_2007}. 
 
 We trace molecular gas here using the 115 GHz 1-0 rotational transition of CO. The integral of this emission line can be converted to total hydrogen column CITE using
 
-\begin{equation}
+\begin{equation}\label{XCO}
 X_{CO} = .
 \end{equation}
 
 This conversion factor has number of known weaknesses, stemming from much more complex excitation and opacity effects, as well as real variation in relative population of CO and $H_2$ molecules. We will address the impacts of these weaknesses in \S \ref{sec:validation}. 
 
-For our CO data, we simply use the interpolated whole Galaxy cube provided by \cite{Dame_2001}. We post-process these data with a plus-shaped median smoothing kernel, to eliminate single-pixel artifacts in the data. This is a less that X\% effect in the total CO emission contained in the map. In this text we investigate the Galactic plane, and so we use the sky area provided in this data set, $-30^\circ < b < 30^\circ$, and over the full range of $l$ as our grid. We retain the $7.5^\prime$ pixels in this data set.
+For our CO data, we simply use the interpolated whole Galaxy cube provided by \cite{Dame_2001}. We post-process these data with a plus-shaped median smoothing kernel, to eliminate single-pixel artifacts in the data. This filtering procedure generates less than X\% effect in the total CO emission contained in the map. In this text we investigate the Galactic plane, and so we use the sky area provided in this data set, $-30^\circ < b < 30^\circ$, and over the full range of $l$ as our grid. These data have a radial velocity resolution of 1.3 km s$^{-1}$, over -320 km s$^{-1} < V_{LSR} <$ 320 km s$^{-1}$. We find that the native resolution and PPV extent of these data are appropriate for our investigation, and thus retain the exact pixelization of these data for our analysis. 
 
-For our HI data we use a combination of three large-area Galactic HI surveys. South of declination 0$^\circ$ we use data from the 16$^\prime$ resolution GASS survey \cite{Kalberla_2010}, from declination 0$^\circ$ to 38$^\circ$ we use unpublished data from the 4$^\prime$ resolution GALFA-HI survey \cite{Peek_2011} Data Release 2, North of 38$^\circ$ we default to the 36$^\prime$ resolution LAB Survey \cite{Kalberla_2005}. We regrid these data onto the $7.5^\prime$ pixels of the \cite{Dame_2001} CO map. 
+For our HI data we use a combination of three large-area Galactic HI surveys. South of declination 0$^\circ$ we use data from the 16$^\prime$ resolution GASS survey \cite{Kalberla_2010}, from declination 0$^\circ$ to 38$^\circ$ we use unpublished data from the 4$^\prime$ resolution GALFA-HI survey \cite{Peek_2011} Data Release 2, North of 38$^\circ$ we default to the 36$^\prime$ resolution LAB Survey \cite{Kalberla_2005}. We regrid these data onto the $7.5^\prime X 1.3$km s$^(-1}$ pixels of the \cite{Dame_2001} CO map. 
 
-These two maps are then combined 
+These two maps are then combined using the above equations \ref{XHI} and \ref{XHI} to make a single N_H data cube.
 
 
 \subsection{Reddening cube}
+
+Our extinction cube is derived entirely from the \cite{Green_2015} extinction cube. \citet{Green_2015} use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels. The distance information provided by the \cite{Green_2015} map is in steps of half a distance modulus, from 63 pc to 63 kpc. We regrid these data onto the \cite{Dame_2001} $l-b$ grid, and difference them to find the reddening in each distance modulus. This is then converted to a $N_H$ using the factor measured in \cite{Peek_2013}, 
+
+\begin{equation}
+N_H = E\left(B-V\right} 7 \times 10^{21}.
+\end{equation
+
 source, regridding process?
 brief rundown of how these are made
 post-processing, aka multiplying by a constant
