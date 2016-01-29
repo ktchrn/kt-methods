@@ -16,13 +16,12 @@ X_{CO} = .
 
 This conversion factor has number of known weaknesses, stemming from much more complex excitation and opacity effects, as well as real variation in relative population of CO and $H_2$ molecules. We will address the impacts of these weaknesses in \S \ref{sec:validation}. 
 
-For our CO data, we simply use the interpolated whole Galaxy cube provided by \cite{Dame_2001}. In this text we investigate the Galactic plane, and so we use the sky area provided in this data set, $-30^\circ < b < 30^\circ$, and over the full range of $l$. We retain the $7.5^\prime$ pixels in this map.
+For our CO data, we simply use the interpolated whole Galaxy cube provided by \cite{Dame_2001}. We post-process these data with a plus-shaped median smoothing kernel, to eliminate single-pixel artifacts in the data. This is a less that X\% effect in the total CO emission contained in the map. In this text we investigate the Galactic plane, and so we use the sky area provided in this data set, $-30^\circ < b < 30^\circ$, and over the full range of $l$ as our grid. We retain the $7.5^\prime$ pixels in this data set.
 
-For our HI data we use a combination of three large-area Galactic HI surveys. South of declination 0$^\circ$ we use data from the 16$^\prime$ resolution GASS survey \cite{Kalberla_2010}, from declination 0$^\circ$ to 38$^\circ$ we use unpublished data from the 4$^\prime$ resolution GALFA-HI survey Data Release 2, North of 38$^\circ$ we default to the 36$^\prime$ resolution LAB Survey \cite{Kalberla_2005}. We regrid these data onto the $7.5^\prime$ pixels of the \cite{Dame_2001} CO map. 
+For our HI data we use a combination of three large-area Galactic HI surveys. South of declination 0$^\circ$ we use data from the 16$^\prime$ resolution GASS survey \cite{Kalberla_2010}, from declination 0$^\circ$ to 38$^\circ$ we use unpublished data from the 4$^\prime$ resolution GALFA-HI survey \cite{Peek_2011} Data Release 2, North of 38$^\circ$ we default to the 36$^\prime$ resolution LAB Survey \cite{Kalberla_2005}. We regrid these data onto the $7.5^\prime$ pixels of the \cite{Dame_2001} CO map. 
 
+These two maps are then combined 
 
-sources and regridding process
-post-processing, which includes multiplying by constants to get H nucleon counts and median filtering in lb space to get rid of single voxel artifacts in the CO map
 
 \subsection{Reddening cube}
 source, regridding process?
