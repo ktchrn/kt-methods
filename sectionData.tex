@@ -1,6 +1,6 @@
 \section{Data}
 \label{sec:data}
-\subsection{HI and CO cubes}
+\subsection{HI and CO data}
 
 Radio emission lines in HI and CO trace the two dominant constituents of the Galctic ISM, atomic and molecular gas. Ionized phases of the ISM do not contribute significantly to the column density, and will therefore not trace the extinction measured in \cite{Green_2015}. 21-cm line emission from the hyperfine transition of HI is usually optically thin and its integral is an excellent tracer of HI column:
 \begin{equation}\label{XHI}
@@ -23,17 +23,14 @@ For our HI data we use a combination of three large-area Galactic HI surveys. So
 These two maps are then combined using the above equations \ref{XHI} and \ref{XHI} to make a single N_H data cube.
 
 
-\subsection{Reddening cube}
+\subsection{Dust data}
 
-Our extinction cube is derived entirely from the \cite{Green_2015} extinction cube. \citet{Green_2015} use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels. The distance information provided by the \cite{Green_2015} map is in steps of half a distance modulus, from 63 pc to 63 kpc. We regrid these data onto the \cite{Dame_2001} $l-b$ grid, and difference them to find the reddening in each distance modulus. This is then converted to a $N_H$ using the factor measured in \cite{Peek_2013}, 
+Our extinction cube is derived entirely from the \cite{Green_2015} reddening data. \citet{Green_2015} use PanSTARRS photometry of 800 million stars to infer the cumulative reddening along the line of sight in 6.8$^\prime$ (NSIDE=512 HEALPix) pixels. The distance information provided by the \cite{Green_2015} map is in steps of half a distance modulus, from 63 pc to 63 kpc. We regrid these data onto the \cite{Dame_2001} $l-b$ grid, and difference them in distance to find the reddening between each distance modulus. This is then converted to a $N_H$ using the factor measured in \cite{Peek_2013}, 
 
 \begin{equation}
 N_H = E\left(B-V\right) 7 \times 10^{21}.
 \end{equation}
 
-source, regridding process?
-brief rundown of how these are made
-post-processing, aka multiplying by a constant
 
 \subsection{Reid masers}
 final source
