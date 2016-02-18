@@ -1,23 +1,39 @@
 \section{Methods}
-\label{sec:methods}
+
 \subsection{KT / guided gaussian decomposition}
 
-\subsubsection{Sketch}
-"points" in space with single-ish distance, velocity
-move points in velocity while keeping them fixed in distance
-smooth things out
+In the introduction, we described our method for mapping the ISM in PPPV space as a kind of inversion of the usual idea of a kinematic distnace. Instead of setting the distance of a voxel in a PPV cube based on the voxel's line-of-sight velocity and a rotation curve, set the velocity of a voxel in a PPP cube based on the voxel's distance and a rotation curve. Since a voxel is not a point, we need to assign it a distribution of velocites rather than a single velocity; we use a Gaussian. This operation is shown for all of the voxels along a single line of sight in Figure (first proj). If we apply this operation a large number of sightlines at a single galactic latitude, we get the $\ell$-$v$ map shown in Figure (first lv). 
 
-\subsubsection{Description of system being solved}
-objective function including smoothing term
-what is uncertainty
+The expected velocity-based $\ell-v$ map does not look like the observed $\ell$-$v$ map. Some of the differences between the two $\ell$-$v$ maps are  caused by the low distance resolution of the PPP cube beyond a few kiloparsecs, while others come from us assigning the same fiducial width to every PPP voxel's velocity Gaussian. Many of the differences, however, are clearly caused by the expected velocities being incorrect. These velocity offsets affect not just single pointings but entire extended structures. For example, the line-of-sight velocity of the cloud at $\ell \approx 155^\circ$ is 0 km/sec in the flat rotation-derived map and 5 km/sec in the observed map. In this many other cases, the necessary adjustments to the expected velocities can be picked out by eye.
 
-\subsubsection{Practical aspects}
-choosing delta v window, smoothing parameter values
-use figure \ref{fig:smoothing_effects} to explain how varying the smoothing parameter affects the solution in clean, medium, busy sightline regimes
+Since deviations from the expected velocities are clearly necessary, we need to allow them. Practically, "allowing deviations" means varying the center, $\mu_k$, and width, $\sigma_k$, of each distance voxel $k$ to minimize the difference between the model and observed $\ell$-$v$ maps. Along a single line of sight, the difference is given by the expression
+\begin{align}
+    \sum_u ((\sum_k f(v_u; \mu_k, \sigma_k)) - y_k)^2,
+\end{align}
+where $v_u$ and $y_u$ are the $u$th velocity and column density values along the velocity axis and $f$ is the pixel-convolved Gaussian function.
+The objective function over all lines of sight is
+\begin{align}
+\label{eq:objective-nosprings}
+    \sum_i \sum_j \sum_u ((\sum_k f(v_u; \mu_{i,j,k}, \sigma_{i,j,k})) - y_{i,j,k})^2,
+\end{align}
+where $i$ and $j$ are indices along the $\ell$ and $b$ directions. 
 
-local vs. global solutions, possibility of multiple solutions
-point out uniqueness issues
-convince audience that we're finding global-ish solutions by showing solutions converged on from different initial conditions in figure?
+Based on visual inspection of the flat rotation-derived and observed $\ell$-$v$ maps and physical arguments about plausible magnitudes for streaming motions (CITE), we place a bound of 40 km/sec on the magnitude of deviations from flat rotation. Explicitly, $\mu_k$ must be within 40 km/sec of the line-of-sight velocity corresponding to flat rotation at the position of distance voxel $i$. We have found that maximum deviations between 35 and 50 km/sec give similar, though not identical, results.
+
+Figure (varproj) shows a typical [REVISE, FAKE NOT TYPICAL] solution for a single pointing, and Figure (vary lv) shows an $\ell$-$v$ map derived from an actual solution. Apart from a few small mismatches (e.g. at $\ell \approx 80^\circ$ and $v\approx$ $-40$ km/sec), this model gives a faithful reproduction of the observations.
+
+For a given starting PPP 3-cube, there will generally be more than one solution that correctly reproduces the observed PPV 3-cube. Since we are interested in the per-PPP-voxel velocity assignments, we need a way of selecting the solution that is, in some sense, more likely to be the correct one. We do this by adding the constraint that velocity centers of PPP voxels that are adjacent in $\ell$ and $v$ should be similar. We implement this by adding the following term to the objective function in equation \ref{eq:objective-nosprings}:
+\begin{align}
+    \lambda \times \sum_k \left( \sum_i (\mu_{i,j,k} - \mu_{i+1,j,k})^2 + 
+    \sum_j (\mu_{i,j,k} - \mu_{i,j+1,k})^2 \right).
+\end{align}
+Using this term is an example of Tikhonov regularization. As in equation \ref{eq:objective-nosprings}, $i$, $j$, and $k$ are indices for the $\ell$, $b$, and distance axes. The strength of the regularization, i.e. the degree to which we require neighboring voxels to have similar centers, is set by $\lambda$. The higher the value of $\lambda$, the more regularized the solution.
+
+In practice, regularizing the solution mainly affects the central velocities of relatively faint, low-mass PPP voxels. Along a typical sightline, therer will be few high-mass voxels in both distance and velocity. The velocity of these high-mass voxels will be well-constrained and will not change from reprojection to reprojection. Moving one of these voxels to a different central velocity would greatly increase the difference bettween the model and observation. Conversely, low-mass voxels tend to be more interchangeable from reprojection to reprojection and more locally movable within a reprojection. As a result, including a regularization term favors solutions in which low-mass voxels' central velocities are similar to any near-by high-mass voxels' central velocities.
+
+Figure (spring proj) shows the effect of including this constraint on a single line of sight solution, and figure (spring lv) shows the corresponding lv map. In both cases, the \emph{fit}, i.e. similarity of model and observation, is not as good as the fit of the uncstrained solution. We find the tradeoff between slightly biased central velocities throughout the diffuse ISM on a local scale and a more unique and correct solution on a global scale to be acceptable. We also find that the regularized solution is in substantially better agreement with the reference dataset, which has complete 6-dimensional phase space measurements for a small number of discrete points throughout the galaxy (see Sec. Masers). 
+
+The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussians from the previous step at their positions in the PPP cube and not projecting down to PPV space. A more easily visualizable summary of the solution is the 3-cube fo velocity centers, which gives the mean motion of the ISM as a function of on-sky position and distance. We explore a few views of this 3-cube in Sec. Results. We can use this 3-cube to derive a non-parametric galactic rotation curve. Our procedure for this derivation is given in the next section. 
 
 \subsection{Rotation curve fitting}
 functional form -- piecewise flat 
