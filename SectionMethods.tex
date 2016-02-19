@@ -48,11 +48,19 @@ Equation \ref{eqn:radius}
 \end{equation}
 \ref{eqn:velo-los-phi}
 
-\begin{equation}
+\begin{align}
 \label{eqn:velo-los-radial}
-    v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) = v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)
-\end{equation}
+    v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) &= v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)
+    &= v_R C_R
+\end{align}
 \ref{eqn:velo-los-radial}
+
+\begin{equation}
+\label{eqn:velo-los-dispersion}
+    \sigma_{\rm{los}} = \sqrt{ 
+        (\sigma_\phi C_\phi)^2 + (\sigma_R C_R)
+    }
+\end{equation}
 
 functional form -- piecewise flat 
 right now, uncorrelated dispersions -- expand to correlated ones?
