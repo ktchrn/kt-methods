@@ -45,20 +45,20 @@ Equation \ref{eqn:radius}
 \begin{eqnarray}
 \label{eqn:velo-los-phi}
     v_{\rm{los}, \phi}(v_\phi; \ell_i, b_j, d_k) &=& \sin \ell_i \cos b_j  \left( v_\phi \frac{R_\odot}{R_{i,j,k}} - v_{\phi, \odot} \right)\\
-    &\equiv& C_\phi v_\phi - \sin \ell_i \cos b v_{\phi, \odot}
+    &\equiv& C_{\phi,i,j,k} v_\phi - \sin \ell_i \cos b_j v_{\phi, \odot}
 \end{eqnarray}
 \ref{eqn:velo-los-phi}
 
 \begin{eqnarray}
 \label{eqn:velo-los-radial}
     v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) &=& v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)\\
-    &\equiv& C_R v_R
+    &\equiv& C_{R,i,j,k} v_R
 \end{eqnarray}
 \ref{eqn:velo-los-radial}
 
 \begin{equation}
 \label{eqn:velo-los-dispersion}
-    \sigma_{\rm{los}} = \sqrt{ (C_\phi \sigma_\phi)^2 + (C_R \sigma_R)^2 }
+    \sigma_{\rm{los}} (\sigma_\phi, \sigma_R; \ell_i, b_j, d_k) = \sqrt{ (C_{\phi,i,j,k} \sigma_\phi)^2 + (C_{R,i,j,k} \sigma_R)^2 }
 \end{equation}
 \ref{eqn:velo-los-dispersion}
 
