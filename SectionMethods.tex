@@ -13,9 +13,10 @@ Since deviations from the expected velocities are clearly necessary, we need to 
 where $v_u$ and $y_u$ are the $u$th velocity and column density values along the velocity axis and $f$ is the pixel-convolved Gaussian function.
 The objective function over all lines of sight is
 \begin{align}
-\label{eq:objective-nosprings}
     \sum_i \sum_j \sum_u ((\sum_k f(v_u; \mu_{i,j,k}, \sigma_{i,j,k})) - y_{i,j,k})^2,
 \end{align}
+\label{eq:objective-nosprings}
+
 where $i$ and $j$ are indices along the $\ell$ and $b$ directions. 
 
 Based on visual inspection of the flat rotation-derived and observed $\ell$-$v$ maps and physical arguments about plausible magnitudes for streaming motions (CITE), we place a bound of 40 km/sec on the magnitude of deviations from flat rotation. Explicitly, $\mu_k$ must be within 40 km/sec of the line-of-sight velocity corresponding to flat rotation at the position of distance voxel $i$. We have found that maximum deviations between 35 and 50 km/sec give similar, though not identical, results.
@@ -23,10 +24,10 @@ Based on visual inspection of the flat rotation-derived and observed $\ell$-$v$ 
 Figure (varproj) shows a typical [REVISE, FAKE NOT TYPICAL] solution for a single pointing, and Figure (vary lv) shows an $\ell$-$v$ map derived from an actual solution. Apart from a few small mismatches (e.g. at $\ell \approx 80^\circ$ and $v\approx$ $-40$ km/sec), this model gives a faithful reproduction of the observations.
 
 For a given starting PPP 3-cube, there will generally be more than one solution that correctly reproduces the observed PPV 3-cube. Since we are interested in the per-PPP-voxel velocity assignments, we need a way of selecting the solution that is, in some sense, more likely to be the correct one. We do this by adding the constraint that velocity centers of PPP voxels that are adjacent in $\ell$ and $v$ should be similar. We implement this by adding the following term to the objective function in equation \ref{eq:objective-nosprings}:
-\begin{align}
+\begin{equation}
     \lambda \times \sum_k \left( \sum_i (\mu_{i,j,k} - \mu_{i+1,j,k})^2 + 
     \sum_j (\mu_{i,j,k} - \mu_{i,j+1,k})^2 \right).
-\end{align}
+\end{equation}
 Using this term is an example of Tikhonov regularization. As in equation \ref{eq:objective-nosprings}, $i$, $j$, and $k$ are indices for the $\ell$, $b$, and distance axes. The strength of the regularization, i.e. the degree to which we require neighboring voxels to have similar centers, is set by $\lambda$. The higher the value of $\lambda$, the more regularized the solution.
 
 In practice, regularizing the solution mainly affects the central velocities of relatively faint, low-mass PPP voxels. Along a typical sightline, therer will be few high-mass voxels in both distance and velocity. The velocity of these high-mass voxels will be well-constrained and will not change from reprojection to reprojection. Moving one of these voxels to a different central velocity would greatly increase the difference bettween the model and observation. Conversely, low-mass voxels tend to be more interchangeable from reprojection to reprojection and more locally movable within a reprojection. As a result, including a regularization term favors solutions in which low-mass voxels' central velocities are similar to any near-by high-mass voxels' central velocities.
@@ -36,10 +37,10 @@ Figure (spring proj) shows the effect of including this constraint on a single l
 The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussians from the previous step at their positions in the PPP cube and not projecting down to PPV space. A more easily visualizable summary of the solution is the 3-cube fo velocity centers, which gives the mean motion of the ISM as a function of on-sky position and distance. We explore a few views of this 3-cube in Sec. Results. We can use this 3-cube to derive a non-parametric galactic rotation curve. Our procedure for this derivation is given in the next section. 
 
 \subsection{Rotation curve fitting}
-\begin{align}
+\begin{equation}
+R_{i,j,k} = \sqrt{ R_\odot^2 + (d_k \cos b_j)^2 - 2 R_\odot d_k \cos b_j \cos \ell_i}
+\end{equation}
 \label{eq:radius}
-R_{i,j,k} = \sqrt{ R_\odot^2 + (d_k \cos b_j)^2 - 2 R_\odot d_k \cos b_j \cos \ell_i }
-\end{align}
 Equation \ref{eq:radius}
 
 \begin{align}
