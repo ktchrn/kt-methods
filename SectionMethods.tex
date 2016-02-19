@@ -42,10 +42,11 @@ The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussia
 \end{equation}
 Equation \ref{eqn:radius}
 
-\begin{equation}
+\begin{eqnarray}
 \label{eqn:velo-los-phi}
-    v_{\rm{los}, \phi}(v_\phi; \ell_i, b_j, d_k) = \sin \ell_i \cos b_j  \left( v_\phi \frac{R_\odot}{R_{i,j,k}} - v_{\phi, \odot} \right)
-\end{equation}
+    v_{\rm{los}, \phi}(v_\phi; \ell_i, b_j, d_k) &=& \sin \ell_i \cos b_j  \left( v_\phi \frac{R_\odot}{R_{i,j,k}} - v_{\phi, \odot} \right)\\
+    &\equiv& C_\phi v_\phi - \sin \ell_i \cos b v_{\phi, \odot}
+\end{eqnarray}
 \ref{eqn:velo-los-phi}
 
 \begin{equation}
