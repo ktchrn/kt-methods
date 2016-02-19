@@ -36,6 +36,26 @@ Figure (spring proj) shows the effect of including this constraint on a single l
 The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussians from the previous step at their positions in the PPP cube and not projecting down to PPV space. A more easily visualizable summary of the solution is the 3-cube fo velocity centers, which gives the mean motion of the ISM as a function of on-sky position and distance. We explore a few views of this 3-cube in Sec. Results. We can use this 3-cube to derive a non-parametric galactic rotation curve. Our procedure for this derivation is given in the next section. 
 
 \subsection{Rotation curve fitting}
+\begin{align}
+\label{eq:radius}
+R_{i,j,k} = \sqrt{ 
+    R_\odot^2 + (d_k \cos b_j)^2 - 2 R_\odot d_k \cos b_j \cos \ell_i
+}
+\end{align}
+
+\begin{align}
+\label{eq:velo-los-phi}
+v_{\rm{los}, \phi}(v_\phi; \ell_i, b_j, d_k) = \sin \ell_i \cos b_j 
+ \left( v_\phi \frac{R_\odot}{R_{i,j,k}} - v_{\phi, \odot} \right)
+\end{align}
+
+\begin{align}
+\label{eq:velo-los-dispersion}
+v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) = v_R \frac{\cos b}{R_{i,j,k}} 
+\left( 
+\left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i
+\right)
+\end{align}
 functional form -- piecewise flat 
 right now, uncorrelated dispersions -- expand to correlated ones?
 should probably worry about radial binning scheme more than I do at the moment
