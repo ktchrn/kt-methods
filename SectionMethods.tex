@@ -7,14 +7,14 @@ In the introduction, we described our method for mapping the ISM in PPPV space a
 The expected velocity-based $\ell-v$ map does not look like the observed $\ell$-$v$ map. Some of the differences between the two $\ell$-$v$ maps are  caused by the low distance resolution of the PPP cube beyond a few kiloparsecs, while others come from us assigning the same fiducial width to every PPP voxel's velocity Gaussian. Many of the differences, however, are clearly caused by the expected velocities being incorrect. These velocity offsets affect not just single pointings but entire extended structures. For example, the line-of-sight velocity of the cloud at $\ell \approx 155^\circ$ is 0 km/sec in the flat rotation-derived map and 5 km/sec in the observed map. In this many other cases, the necessary adjustments to the expected velocities can be picked out by eye.
 
 Since deviations from the expected velocities are clearly necessary, we need to allow them. Practically, "allowing deviations" means varying the center, $\mu_k$, and width, $\sigma_k$, of each distance voxel $k$ to minimize the difference between the model and observed $\ell$-$v$ maps. Along a single line of sight, the difference is given by the expression
-\begin{align}
+\begin{equation}
     \sum_u ((\sum_k f(v_u; \mu_k, \sigma_k)) - y_k)^2,
-\end{align}
+\end{equation}
 where $v_u$ and $y_u$ are the $u$th velocity and column density values along the velocity axis and $f$ is the pixel-convolved Gaussian function.
 The objective function over all lines of sight is
-\begin{align}
+\begin{equation}
     \sum_i \sum_j \sum_u ((\sum_k f(v_u; \mu_{i,j,k}, \sigma_{i,j,k})) - y_{i,j,k})^2,
-\end{align}
+\end{equation}
 \label{eq:objective-nosprings}
 
 where $i$ and $j$ are indices along the $\ell$ and $b$ directions. 
