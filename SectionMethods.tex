@@ -13,7 +13,7 @@ Since deviations from the expected velocities are clearly necessary, we need to 
 where $v_u$ and $y_u$ are the $u$th velocity and column density values along the velocity axis and $f$ is the pixel-convolved Gaussian function.
 The objective function over all lines of sight is
 \begin{equation}
-\label{eq:objective-nosprings}
+\label{eqn:objective-nosprings}
     \sum_i \sum_j \sum_u ((\sum_k f(v_u; \mu_{i,j,k}, \sigma_{i,j,k})) - y_{i,j,k})^2,
 \end{equation}
 where $i$ and $j$ are indices along the $\ell$ and $b$ directions. 
@@ -22,12 +22,12 @@ Based on visual inspection of the flat rotation-derived and observed $\ell$-$v$ 
 
 Figure (varproj) shows a typical [REVISE, FAKE NOT TYPICAL] solution for a single pointing, and Figure (vary lv) shows an $\ell$-$v$ map derived from an actual solution. Apart from a few small mismatches (e.g. at $\ell \approx 80^\circ$ and $v\approx$ $-40$ km/sec), this model gives a faithful reproduction of the observations.
 
-For a given starting PPP 3-cube, there will generally be more than one solution that correctly reproduces the observed PPV 3-cube. Since we are interested in the per-PPP-voxel velocity assignments, we need a way of selecting the solution that is, in some sense, more likely to be the correct one. We do this by adding the constraint that velocity centers of PPP voxels that are adjacent in $\ell$ and $v$ should be similar. We implement this by adding the following term to the objective function in equation \ref{eq:objective-nosprings}:
+For a given starting PPP 3-cube, there will generally be more than one solution that correctly reproduces the observed PPV 3-cube. Since we are interested in the per-PPP-voxel velocity assignments, we need a way of selecting the solution that is, in some sense, more likely to be the correct one. We do this by adding the constraint that velocity centers of PPP voxels that are adjacent in $\ell$ and $v$ should be similar. We implement this by adding the following term to the objective function in equation \ref{eqn:objective-nosprings}:
 \begin{equation}
     \lambda \times \sum_k \left( \sum_i (\mu_{i,j,k} - \mu_{i+1,j,k})^2 + 
     \sum_j (\mu_{i,j,k} - \mu_{i,j+1,k})^2 \right).
 \end{equation}
-Using this term is an example of Tikhonov regularization. As in equation \ref{eq:objective-nosprings}, $i$, $j$, and $k$ are indices for the $\ell$, $b$, and distance axes. The strength of the regularization, i.e. the degree to which we require neighboring voxels to have similar centers, is set by $\lambda$. The higher the value of $\lambda$, the more regularized the solution.
+Using this term is an example of Tikhonov regularization. As in equation \ref{eqn:objective-nosprings}, $i$, $j$, and $k$ are indices for the $\ell$, $b$, and distance axes. The strength of the regularization, i.e. the degree to which we require neighboring voxels to have similar centers, is set by $\lambda$. The higher the value of $\lambda$, the more regularized the solution.
 
 In practice, regularizing the solution mainly affects the central velocities of relatively faint, low-mass PPP voxels. Along a typical sightline, therer will be few high-mass voxels in both distance and velocity. The velocity of these high-mass voxels will be well-constrained and will not change from reprojection to reprojection. Moving one of these voxels to a different central velocity would greatly increase the difference bettween the model and observation. Conversely, low-mass voxels tend to be more interchangeable from reprojection to reprojection and more locally movable within a reprojection. As a result, including a regularization term favors solutions in which low-mass voxels' central velocities are similar to any near-by high-mass voxels' central velocities.
 
@@ -37,23 +37,23 @@ The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussia
 
 \subsection{Rotation curve fitting}
 \begin{equation}
-\label{eq:radius}
+\label{eqn:radius}
     R_{i,j,k} = \sqrt{ R_\odot^2 + (d_k \cos b_j)^2 - 2 R_\odot d_k \cos b_j \cos \ell_i}
 \end{equation}
-Equation \ref{eq:radius}
+Equation \ref{eqn:radius}
 
 %v_{\rm{los}, \phi}(v_\phi; \ell_i, b_j, d_k) = \sin \ell_i \cos b_j  \left( v_\phi \frac{R_\odot}{R_{i,j,k}} - v_{\phi, \odot} \right)
 \begin{equation}
-\label{eq:velo-los-phi}
+\label{eqn:velo-los-phi}
      v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) = v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)
 \end{equation}
-\ref{eq:velo-los-phi}
+\ref{eqn:velo-los-phi}
 
 \begin{equation}
-\label{eq:velo-los-radial}
+\label{eqn:velo-los-radial}
     v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) = v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)
 \end{equation}
-\ref{eq:velo-los-radial}
+\ref{eqn:velo-los-radial}
 
 functional form -- piecewise flat 
 right now, uncorrelated dispersions -- expand to correlated ones?
