@@ -16,7 +16,6 @@ The objective function over all lines of sight is
 \label{eq:objective-nosprings}
     \sum_i \sum_j \sum_u ((\sum_k f(v_u; \mu_{i,j,k}, \sigma_{i,j,k})) - y_{i,j,k})^2,
 \end{equation}
-
 where $i$ and $j$ are indices along the $\ell$ and $b$ directions. 
 
 Based on visual inspection of the flat rotation-derived and observed $\ell$-$v$ maps and physical arguments about plausible magnitudes for streaming motions (CITE), we place a bound of 40 km/sec on the magnitude of deviations from flat rotation. Explicitly, $\mu_k$ must be within 40 km/sec of the line-of-sight velocity corresponding to flat rotation at the position of distance voxel $i$. We have found that maximum deviations between 35 and 50 km/sec give similar, though not identical, results.
@@ -41,7 +40,6 @@ The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussia
 \label{eq:radius}
     R_{i,j,k} = \sqrt{ R_\odot^2 + (d_k \cos b_j)^2 - 2 R_\odot d_k \cos b_j \cos \ell_i}
 \end{equation}
-
 Equation \ref{eq:radius}
 
 \begin{equation}
@@ -52,8 +50,7 @@ Equation \ref{eq:radius}
 
 \begin{equation}
 \label{eq:velo-los-radial}
-    %v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) = v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)
-     v_{\rm{los}, \phi}(v_\phi; \ell_i, b_j, d_k) = \sin \ell_i \cos b_j  \left( v_\phi \frac{R_\odot}{R_{i,j,k}} - v_{\phi, \odot} \right)
+    v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) = v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)
 \end{equation}
 \ref{eq:velo-los-radial}
 
