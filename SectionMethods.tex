@@ -44,7 +44,7 @@ Our derivation resembles most other rotation curve derivations. We assume that t
 For a given rotation curve $v_\phi(R)$, azimuthal dispersion $\sigma_\phi$, and radial dispersion $\sigma_R$, the likelihood function for a point $\ell_i,b_j,d_k$ in our 3D line-of-sight velocity map is 
 \begin{equation}
 \label{eqn:rotcuve_likelihood}
-p(\mu_{i,j,k} \vert v_{los, \phi}(\ell_i, b_j, d_k), \sigma_{los, i, j, k}) = \frac{1}{\sqrt{2 \pi \sigma^2} e^{- \frac{(\mu_{i,j,k} - v_{los, \phi})^2}{2 \sigma_{los, i, j ,k}}}}
+p(\mu_{i,j,k} \vert v_{los, \phi}(\ell_i, b_j, d_k), \sigma_{los, i, j, k}) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(\mu_{i,j,k} - v_{los, \phi})^2}{2 \sigma_{los, i, j ,k}}}
 \end{equation}
 
 To compute these projections, we first need an expression for the galactocentric radius at $\ell_i$, $b_j$, $d_k$:
