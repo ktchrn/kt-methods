@@ -1,4 +1,4 @@
-\section{Methods}
+\section{Kinetic tomography}
 
 \subsection{KT / guided gaussian decomposition}
 
@@ -31,6 +31,6 @@ Using this term is an example of Tikhonov regularization. As in equation \ref{eq
 
 In practice, regularizing the solution mainly affects the central velocities of relatively faint, low-mass PPP voxels. Along a typical sightline, therer will be few high-mass voxels in both distance and velocity. The velocity of these high-mass voxels will be well-constrained and will not change from reprojection to reprojection. Moving one of these voxels to a different central velocity would greatly increase the difference bettween the model and observation. Conversely, low-mass voxels tend to be more interchangeable from reprojection to reprojection and more locally movable within a reprojection. As a result, including a regularization term favors solutions in which low-mass voxels' central velocities are similar to any near-by high-mass voxels' central velocities.
 
-Figure (spring proj) shows the effect of including this constraint on a single line of sight solution, and figure (spring lv) shows the corresponding lv map. In both cases, the \emph{fit}, i.e. similarity of model and observation, is not as good as the fit of the uncstrained solution. We find the tradeoff between slightly biased central velocities throughout the diffuse ISM on a local scale and a more unique and correct solution on a global scale to be acceptable. We also find that the regularized solution is in substantially better agreement with the reference dataset, which has complete 6-dimensional phase space measurements for a small number of discrete points throughout the galaxy (see Sec. Masers). 
+Figure (spring proj) shows the effect of including this constraint on a single line of sight solution, and figure (spring lv) shows the corresponding lv map. In both cases, the \emph{fit}, i.e. similarity of model and observation, is not as good as the fit of the unconstrained solution. We find the trade-off between slightly biased central velocities throughout the diffuse ISM on a local scale and a more unique and correct solution on a global scale to be acceptable. We also find that the regularized solution is in substantially better agreement with the reference dataset, which has complete 6-dimensional phase space measurements for a small number of discrete points throughout the galaxy (see Sec. Masers). 
 
 The actual PPPV reconstruction, then, comes from evaluating the velocity Gaussians from the previous step at their positions in the PPP cube and not projecting down to PPV space. A more easily visualizable summary of the solution is the 3-cube of velocity centers, which gives the mean motion of the ISM as a function of on-sky position and distance.
