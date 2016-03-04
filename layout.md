@@ -9,4 +9,5 @@ figures/figure_/default_figure.png
 SectionResults.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 SectionValidation.tex
+Discussion.tex
 SectionConclusion.tex
