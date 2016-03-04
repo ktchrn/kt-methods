@@ -9,7 +9,7 @@ Our derivation resembles most other rotation curve derivations. We assume that t
 
 For a given rotation curve $v_\phi(R)$, azimuthal dispersion $\sigma_\phi$, and radial dispersion $\sigma_R$, the likelihood function for a point $\ell_i,b_j,d_k$ in our 3D line-of-sight velocity map is 
 \begin{equation}
-\label{eqn:rotcuve_likelihood}
+\label{eqn:rotcurve_likelihood}
 p(\mu_{i,j,k} \vert v_{los, \phi}(\ell_i, b_j, d_k), \sigma_{los, i, j, k}) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{- \frac{(\mu_{i,j,k} - v_{los, \phi})^2}{2 \sigma_{los, i, j ,k}}}
 \end{equation}
 
@@ -30,12 +30,12 @@ The line-of-sight projection of the azimuthal velocity dispersion is just $C_{\p
     v_{\rm{los}, R} (v_R; \ell_i,  b_j, d_k) &=& v_R \frac{\cos b}{R_{i,j,k}} \left( \left( 1 - 2 \cos^2 \ell_i \right) d_k \cos b_j + R_\odot \cos \ell_i \right)\\
     &\equiv& C_{R,i,j,k} v_R,
 \end{eqnarray}
-and the line-of-sight projection of the radial velocity disperion is $C_{R,i,j,k} \sigma_\phi$. Since we are assuming the azimuthal and radial velocity dispersions are independent,
+and the line-of-sight projection of the radial velocity dispersion is $C_{R,i,j,k} \sigma_\phi$. Since we are assuming the azimuthal and radial velocity dispersions are independent,
 \begin{equation}
 \label{eqn:velo-los-dispersion}
     \sigma_{\rm{los}} (\sigma_\phi, \sigma_R; \ell_i, b_j, d_k) = \sqrt{ (C_{\phi,i,j,k} \sigma_\phi)^2 + (C_{R,i,j,k} \sigma_R)^2 }.
 \end{equation}
-We expect the intrinsic $\sigma_\phi$ and $\sigma_R$ to be about 5 km/sec. However, since the 3-cube of line-of-sight velocities is likely to contain errors which we have not explictly included in our likelihood function, $\sigma_\phi$ and $\sigma_R$ reflect errors in the 3-cube as well as actual departures from the rotation curve. To reflect this, our prior on $\sigma_\phi$ and $\sigma_R$ is a half-normal distribution with left boundary 0 km/sec and one-sided standard deviation 30 km/sec. 
+We expect the intrinsic $\sigma_\phi$ and $\sigma_R$ to be about 5 km/sec. However, since the 3-cube of line-of-sight velocities is likely to contain errors which we have not explicitly included in our likelihood function, $\sigma_\phi$ and $\sigma_R$ reflect errors in the 3-cube as well as actual departures from the rotation curve. To reflect this, our prior on $\sigma_\phi$ and $\sigma_R$ is a half-normal distribution with left boundary 0 km/sec and one-sided standard deviation 30 km/sec. 
 
 Our final posterior probability distribution is the product of the likelihood function in equation \ref{eqn:rotcurve_likelihood} over each point in the cube, a uniform prior with range RANGE on each piecewise-constant step of the rotation curve, and a half-normal prior with one-sided standard deviation 30 km/sec on $\sigma_\phi$ and $\sigma_R$. 
 
