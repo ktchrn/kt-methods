@@ -9,5 +9,5 @@ figures/figure_/default_figure.png
 SectionKTChecking.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 SectionRotationCurve.tex
-Discussion.tex
+SectionDiscussion.tex
 SectionConclusion.tex
