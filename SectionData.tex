@@ -2,11 +2,11 @@
 \label{sec:data}
 \subsection{HI and CO data}
 
-Radio emission lines in HI and CO trace the two dominant constituents of the Galctic ISM, atomic and molecular gas. Ionized phases of the ISM do not contribute significantly to the column density, and will therefore not trace the extinction measured in \cite{Green_2015}. 21-cm line emission from the hyperfine transition of HI is usually optically thin and its integral is an excellent tracer of HI column:
+Radio emission lines in HI and CO trace the two dominant constituents of the Galactic ISM, atomic and molecular gas. Ionized phases of the ISM do not contribute significantly to the column density and will therefore not trace the extinction measured in \cite{Green_2015}. 21-cm line emission from the hyperfine transition of HI is usually optically thin and its integral is an excellent tracer of HI column:
 \begin{equation}\label{XHI}
 N_{HI} = 1.8 \times 10^{18} \rm cm^{-2} \frac{ \int T_B dv}{\rm K~km/s}
 \end{equation}
-In some cases the 21-cm line can become optically thick, and thus an underestimate of the HI column, but largely in H$_2$ dominated regions \cite{Goldsmith_2007}. 
+The 21-cm line can become optically thick, meaning equation \ref{XHI} underestimates the HI column, but this mostly happens in H$_2$ dominated regions \cite{Goldsmith_2007}. 
 
 We trace molecular gas here using the 115 GHz 1-0 rotational transition of CO. The integral of this emission line can be converted to total hydrogen column CITE using
 
@@ -32,7 +32,7 @@ N_H = E\left(B-V\right) 7 \times 10^{21}.
 \end{equation}
 
 
-\subsection{Reid masers}
-final source
-processing to get to distances (just a conversion from parallax) and line-of-sight velocities
-how many/which ones we exclude due to lack of overlap with reddening cube
+\subsection{High-mass star forming region data}
+\label{sec:data-HMSFR}
+To check the accuracy of our method, we need measurements of the line-of-sight velocities and distances of clouds of gas. 
+CITET REID have measured the line-of-sight velocities, proper motions, and trigonometric parallaxes of water and methanol masers associated with 103 high-mass star forming regions (HMSFRs). Of these 103, 4 fall outside of region of the Milky Way we consider in our solution. We adopt the line-of-sight velocities, velocity uncertainties, and parallaxes of the remaining 99 HMSFRs as stated in Table 1 of CITET REID. Following the discussion (but not usage) in CITET BOVY, we assume that the parallax uncertainties correspond to distance uncertainties of approximately 10\%. 
