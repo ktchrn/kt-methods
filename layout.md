@@ -4,7 +4,7 @@ figures/gas_compare3/gas_compare3.png
 SecData.tex
 figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
-SectionMethods.tex
+SectionKTMethods.tex
 figures/figure_/default_figure.png
 SectionResults.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
