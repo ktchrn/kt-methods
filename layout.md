@@ -6,7 +6,7 @@ figures/fig_smoothing_effect/default_figure.png
 figures/fig_initialization_e/default_figure.png
 SectionKTMethods.tex
 figures/figure_/default_figure.png
-SectionResults.tex
+SectionKTChecking.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 SectionValidation.tex
 Discussion.tex
