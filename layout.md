@@ -1,5 +1,5 @@
 abstract.tex
-sectionIntroduction.tex
+SecIntroduction.tex
 figures/gas_compare3/gas_compare3.png
 sectionData.tex
 figures/fig_smoothing_effect/default_figure.png
