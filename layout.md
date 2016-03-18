@@ -8,6 +8,6 @@ SectionKTMethods.tex
 figures/figure_/default_figure.png
 SectionKTChecking.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
-SectionDiscussion.tex
 SectionRotationCurve.tex
+SectionDiscussion.tex
 SectionConclusion.tex
