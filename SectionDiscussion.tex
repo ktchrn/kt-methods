@@ -3,6 +3,25 @@
 
 \subsection{Systematics}
 \label{sec:discussion-systematics}
+In section \ref{sec:KT-method}, we make assumptions about the ISM and our observations of it that are not expected to apply over the entire galaxy. Here, we discuss the expected effect of these assumptions on our solution.
+\subsubsection{Individual sources}
+DARK GAS (missing CO and HI self-absorption)
+One of the core assumptions of our method is that CO and HI emission linearly scale with the amount of ISM.
+
+The other core assumption of our method is that the PPP reddening cube of \citet{Green_2015}  is an accurate representation of the spatial structure of the Milky Way ISM. For observational and astrophysical reasons, this is non-trivially not the case. Most obviously, the GSF+2015 reddening cube is limited in its distance extent. The maximum reliable distance in the PPP cube varies between 3 and 12 kpc (see Figure 8 of GSF+2015), while the PPV cube we are trying to reshuffle it into is an integration to arbitrarily large distances. This difference between the PPP and PPV cubes means that we could potentially be associating parts of the PPP cube with parts of the PPV cube that are actually farther away.
+
+The PPP cube is also not always accurate. Computing the distribution of reddening with distance in a single on-sky pixel of the PPP cube involves simultaneously solving for the distance, reddening, and intrinsic appearence of the stars in that on-sky pixel. For a single star, these parameters are clearly completely degenerate. CITET GREEN+2014, among others (maybe CITE the usual suspects on this), have shown that this degeneracy can be broken by jointly analyzing all of the stars along a given line of sight, given certain conditions on the individual stars' signal-to-noise ratios and how well the sightline is sampled. The effectiveness of this degeneracy breaking is, in large part, what determines the accuracy of the distance-reddening profile. Parts of the PPP cube with relatively low signal-to-noise ratio stellar observations (i.e. highly reddened areas) or relatively low stellar densities will have less accurate distance-reddening profiles. These inaccuracies translate directly into distance-velocity profile inaccuracies in our solutions. 
+
+As is described in section \ref{sec:data}, we convert this reddening cube into a spatial map of the ISM by scaling it by a constant factor. By assuming a constant scale factor between reddening and ISM mass, we ignore the fact that the ratios of reddening to extinction and extinction to total ISM column (i.e. $R_V$ and gas-to-dust ratio) are both known to not be constant. The first assumption, that $R_V$ is effectively constant, is mostly inconsequential. CITET SCHLAFLY 2016 have shown that $R_V$ does not vary by much for the vast majority of \emph{typical} stars, where a \emph{typical} star has a relatively low mass and is on the main sequence. In any case, even the sort of $R_V$ variation seen for nearby Milky Way O-type stars CITE VALENCIC would have a smaller effect than is expected from the presence of dark gas. 
+
+The other potential problem, dust-to-gas ratio variations, is also not expected to have a significant effect over most for most of our solution. The dust-to-gas ratio of ISM near the Milky Way plane varies by a factor of about 2.5 CITEP JENKINS, which is again a small effect compared to the problem of dark gas. This is particularly true once we consider that the dust-to-gas ratio is positively correlated with ISM density CITEP JENKINS -- our PPP cubes and PPV cubes underestimate the masses of more-or-less the same regions for different reasons. 
+
+REGULARIZATION
+
+\subsubsection{Cumulative effect}
+REGIMES WE DEFINITELY BELIEVE
+
+REGIMES WE DON'T QUITE BELIEVE YET
 
 \subsection{Catastrophic outliers}
 \label{sec:discussion-catastrophic}
