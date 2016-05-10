@@ -11,4 +11,5 @@ figures/cl_gd_smooth_maser_comp/default_figure.png
 SectionRotationCurve.tex
 SectionDiscussion.tex
 figures/tracer_syst_dust_gas_distribution/tracer_syst_dust_gas_distribution.png
+figures/tracer_syst_spatial_dist/tracer_syst_spatial_dist.png
 SectionConclusion.tex
