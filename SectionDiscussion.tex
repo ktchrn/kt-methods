@@ -18,7 +18,24 @@ As a result, the gas tracer cubes map out the entire galaxy.
 The dust tracer cube is built by analyzing reddening towards stars. If there are no measurements of stars beyond some distance, the dust tracer cube cuts off.
 This cutoff can happen due to large reddenings (e.g. on the far side of the Galactic center) or the spatial structure of the Milky Way's stellar population (e.g. at large heights above the Galactic plane).
 
-To get an idea of the magnitude and extent of these different PPV-PPP cube mistmatches by comparing their predictions 
+We can get an idea of the magnitude and extent of these different PPV-PPP cube mistmatches by comparing the projections of the PPV and PPP cubes to the $\glon$-$\glat$ plane. 
+The distribution of gas-derived versus reddening-derived total columns is shown in figure \ref{fig:tracer_syst_values}. 
+The two sets of total columns are mostly consistent with each other, i.e. lie along the orange line. 
+There are two regimes in which the total columns are not consistent -- at gas columns below $10^{21}$ cm$^{-2}$ (marked in  blue) and at gas columns above CHECK THE NUMBER $3 \times 10^{22}$ cm$^{-2}$ (marked in red). 
+In both cases, the reddening-derived total column is noticeably smaller than the gas-derived total column.
+
+The spatial distribution of sightlines in the blue and red areas is shown in figure \ref{fig:tracer_syst_spatial} along with the on-sky positions of the HMSFRs from section \ref{sec:KT-validation}. 
+The low-column sightlines with less reddening-traced than gas-traced total column, which are marked in blue, all contain gas at large heights above the Galactic plane. 
+This gas is not well-traced by reddening because (1) there are fewer stars at large heights above the Galactic plane, limiting the maximum distance accurately described by the PPP cube at high latitude; and (2) the dust-to-gas ratio at large heights above the Galactic plane is thought to be lower than it is in the Galactic plane CITATION. 
+Since we only use sightlines with $\glat$ between $-10^\circ$ and $+\10^\circ$ and most of the low-column under-reddened gas is outside of this region, we do not currently need to worry about this effect.
+
+The high-column sightlines with less reddening-traced than gas-traced total column are marked in red.
+These sightlines pass through dense regions in molecular clouds and/or the Galactic plane within the solar circle. 
+In both cases, the PPP cube underestimates the total column because a high-reddening feature nearby, be it the galactic center or the dense molecular cloud, blocks out more distant stars. 
+Since the gas tracers are measured in emission rather than absorption, the PPV cube includes the more distant parts of the ISM which are missing from the PPP cube. 
+Secondary effects, such as variations in dust absorption properties in dense environments, may also play a role.
+
+The most obvious effect of 
 
 The second assumption
 
