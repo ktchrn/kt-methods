@@ -3,71 +3,41 @@
 
 \subsection{Ways in which our assumptions can fail}
 \label{sec:discussion-systematics}
-WHAT ARE THE ASSUMPTIONS?
-ONE OBVIOUS ASSUMPTION COMBO -- THE GAS AND DUST ARE, RESPECTIVELY, GOOD PICTURES OF THE PPV AND PPP ISM. THIS GETS BROKEN IN LOTS OF INTERESTING WAYS
+In our description of kinetic tomography, we make three main assumptions -- we can linearly scale data cubes of gas and dust tracers to get accurate PPV and PPP maps of the ISM, the distribution of velocities associated with a single PPP voxel can be well-approximated by a narrow Gaussian, and the center of the velocity Gaussian associated with a PPP voxel should not be too different from the centers of the velocity Gaussians associated with that voxel's neighbors in $\glon$ and $\glat$. 
+We have not made the claim that kinetic tomography will be in any sense \emph{optimal} (CITE DUSTIN'S APRIL FOOLS PAPER) if these assumptions are true, but we have made the claim that kinetic tomography will be \emph{pretty good}. 
+To what extent do these assumptions appear to be true of the data we have to work with?
+How does the failure of some or all of these assumptions affect the kinetic tomography solution? 
+A THIRD QUESTION FOR THE RULE OF THREES GOD?
 
-ANOTHER -- THE VELOCITY GRADIENT THROUGHOUT A SINGLE DISTANCE "BIN" IN A "SKEWER" IS NEGLIGIBLE; THE DISTRIBUTION OF VELOCITIES THROUGHOUT A BIN CAN BE ADEQUATELY DESCRIBED AS A SINGLE SOLITARY GAUSSIAN. I DON'T HAVE AN OBVIOUS EXAMPLE OF THIS HAPPENING, BUT POINTING OUT THAT DISTANT PARTS OF THE PPP CUBE GET ASSIGNED SUPER WIDE GAUSSIANS IS A THING I COULD DO; STRIPES IN THE "ROTATION CURVE IS RIGHT" LV DIAGRAM ARE ALSO KINDA EVIDENCE OF THIS.
+The first assumption, that linearly scaling data cubes of gas and dust tracers yields accurate PPV and PPP maps of the ISM, has several localized failure modes and two global failure modes. 
+The local failure modes are due to observational and astrophysical phenomena, such as $\HI$ self-absorption and variations in the dust reddening law, which produce localized non-linearities and variations in the conversion from tracer to mass. 
+The global failure modes arise from the maximum distance mapped by the dust tracer cube being shorter than the maximum distance mapped by the gas tracer cubes. 
+By construction, the gas tracers cubes map all gas within a certain velocity range. 
+Gas within this velocity range can be arbitrarily far away. 
+As a result, the gas tracer cubes map out the entire galaxy.
+The dust tracer cube is built by analyzing reddening towards stars. If there are no measurements of stars beyond some distance, the dust tracer cube cuts off.
+This cutoff can happen due to large reddenings (e.g. on the far side of the Galactic center) or the spatial structure of the Milky Way's stellar population (e.g. at large heights above the Galactic plane).
 
-NEIGHBORING PIXELS SHOULD HAVE SIMILAR VELOCITIES. THERE ARE LOGICAL REASONS TO EXPECT THIS TO NOT BE TRUE IN A WAY THAT GENERALLY DEPENDS ON DISTANCE / CONSIDER THE POTENTIAL EXISTENCE OF SPIRAL SHOCKS, BUT NO HARD EVIDENCE OF IT DOING A BAD THING. A SEPARATE AND POSSIBLY TRICKY POINT IS THAT WE MOTIVATE HAVING SPRINGS BY SAYING THAT WE WANT TO HAVE A UNIQUE SOLUTION. WE (1) DON'T SHOW THAT THE REGULARIZED SOLUTION IS UNIQUE, OR PUT ANOTHER AWAY THAT THE REGULARIZATION IS ACTUALLY STRONG ENOUGH TO ENSURE A UNIQUE SOLUTION AND (2) WE DON'T HAVE EVEN A HEURISTIC ARGUMENT FOR WHY A SOLUTION WHICH IS REGULARIZED HARD ENOUGH TO BE UNIQUE SHOULD BE ONE THAT WE TRUST AT ALL.
+To get an idea of the magnitude and extent of these different PPV-PPP cube mistmatches by comparing their predictions 
 
+The second assumption
 
-\subsubsection{Ways in which the PPP and PPV cubes can fail to be accurate depictions of the PPP and PPV ISM}
-EACH ONE CAN BE WRONG, ON ITS OWN
+The third assumption
 
-THE PPP AND PPV CUBES CAN BE INDIVIDUALLY ``RIGHT'' OVER SOME PIECES OF THE ISM BUT WRONG OVER-ALL 
-Figures \ref{fig:tracer_syst_values} and \ref{fig:tracer_syst_spatial}
-
-WHAT DOES THIS DO TO THE SOLUTION? NOT MUCH APPARENTLY, SINCE THE SPOTS WHERE WE KNOW WE'RE RIGHT (HMSFRs) ARE EXACTLY WHERE TOTAL COLUMN COMPARISONS SAY WE SHOULD BE VERY WRONG. ALSO THE SOLUTION IS LIMITED TO ABS(B) < 10, SO WE CUT OUT MOST OF THE BLUE STUFF. I GUESS THIS ASSUMPTION IS LESS IMPORTANT THAN I HAD ASSUMED? 
-
-\subsubsection{How wrong is it to assume that the velocity distribution of the ISM in a single PPP voxel is pretty close to a single relatively narrow Gaussian?}
-IT'S MOSTLY OKAY, BUT BREAKS DOWN FOR FAR AWAY PIXELS. LUCKILY (?) THESE ARE MOSTLY OUTSIDE OF THE RANGE IN WHICH THE PPP MAP IS GOOD ANYWAY
-
-BASICALLY DOESN'T MATTER TOO MUCH
-
-\subsubsection{Possible problems with the regularization scheme}
-TWO MAIN CASES -- REGULARIZATION IS TOO WEAK AND WE DON'T ACTUALLY HAVE A UNIQUE SOLUTION, WHAT THEN; REGULARIZATION IS TOO STRONG AND WE DISTORT STUFF, WHAT THEN?
-
-HANDWAVE AND HEDGE ABOUT THE FIRST ONE BECAUSE WE NEVER CLAIM TO HAVE AN ACTUALLY UNIQUE SOLUTION
-
-WE DON'T HAVE GOOD TESTS THAT COULD TELL US IF WE'RE MAKING THE DIFFUSE ISM MOVE IN UNNECESSARILY FUNKY WAYS. THE ROTATION CURVE, WHICH IS DERIVED MOSTLY FROM THE BULK GENERAL STUFF, SEEMS PRETTY SIMILAR IN BOTH CASES SO IT CAN'T BE TOO BAD? 
-
-THIS IS ONE OF THE REASONS WHY WE DON'T WANT TO RELEASE THESE MAPS
-
-\subsection{Systematics (THIS SECTION IS DEPRECATED)}
-THIS SECTION IS INCOHERENT AND NEEDS BETTER QUANTIFICATION
-
-PIECES OF IT MAY END UP IN BETTER-PLANNED SECTIONS UP ABOVE
-
-ALSO THESE ARE "INCORRECT ASSUMPTIONS", NOT "SYSTEMATICS"
-
-In section \ref{sec:KT-method}, we make assumptions about the ISM and our observations of it that are not expected to apply over the entire galaxy. Here, we discuss the expected effect of these assumptions on our solution.
-\subsubsection{Individual sources}
-DARK GAS (missing CO and \atomH self-absorption)
-One of the core assumptions of our method is that the intensity of \atomH and CO emission at an on-sky position and line-of-sight velocity scales linearly with the amount of ISM occupying that on-sky position and line-of-sight velocity. This assumption is incorrect when the optical depth of either emitting species is greater than unity and when not all ISM mass is traced by the combination of \atomH and CO emission. 
-
-We expect the effects of optical depth effects on our estimate of the distribution of ISM mass over PPV space to be negligible over most of the PPV cube. This is despite the facts that the CO (J=1-0) transition is practically always optically thick and that there are is clear evidence of \atomH self-absorption in the \atomH emission cube. When converting optically thick CO emission to a \molH mass, it is more correct to scale the integral of the emission over the CO line profile (CITE?). However, since the individual CO line profiles in our data cube have width of order a resolution element, simply scaling the CO emission cube is approximately equivalent to applying the more correct prescription and assigning the result to each line profile's central velocity. We neglect \atomH self-absorption because most of the ISM mass in the environment towards which the required \atomH column is usually present, dense molecular clouds, is traced by CO emission. 
-
-The second case, in which not all (non-ionized) ISM mass is traced by the combination of \atomH and CO emission, is more clearly a problem. It is widely known that the part of a molecular cloud in which \molH is spatially coincident with well-shielded CO is surrounded by a layer of CO-dark gas. In this layer, most hydrogen is in the form of \molH, and hence not traced by \atomH emission, but there is not enough shielding to prevent the photodissociation of CO. The exact extent of and mass contained in this layer is still debated (CITE AND CITE; THEY DISAGREE!), but its existence is widely accepted (CITE BOLATTO REVIEW). The amount of CO-dark molecular gas associated with a molecular cloud in the vicinity of the Sun is thought to be about $1/10$ to $1/2$ of the total mass of the cloud. The spatial variation of the CO-dark mass fraction across a molecular cloud is considerably less well-constrained.
-
-%NEEDS DATA
- We can see evidence for CO-dark gas in our maps when we compare the position-position maps obtained by integrating the PPP and PPV cubes over distance and line-of-sight velocity, respectively, towards relatively unconfused molecular clouds. In figure REF:CO-DARK-PERSEUS, we show the spatially-resolved relative difference between the PPP- and PPV-derived integrated maps towards the Perseus molecular cloud. DESCRIBE THE VARIATIONS. Since the magnitude of this effect is expected to vary from molecular cloud to molecular cloud FOR REASONS (CITE), we note its presence but do not attempt to correct for it. We believe this to be one of the major systematic uncertainties affecting our map of the ISM in PPPV space. The magnitude of the effect of CO-dark gas on the PPP cube of velocities is expected to be lower, though not negligible. QUANTIFY?
-
-The other core assumption of our method is that the PPP reddening cube of \citet{Green_2015}  is an accurate representation of the spatial structure of the Milky Way ISM. For observational and astrophysical reasons, this is non-trivially not the case. Most obviously, the GSF+2015 reddening cube is limited in its distance extent. The maximum reliable distance in the PPP cube varies between 3 and 12 kpc (see Figure 8 of GSF+2015), while the PPV cube we are trying to reshuffle it into is an integration to arbitrarily large distances. This difference between the PPP and PPV cubes means that we could potentially be associating parts of the PPP cube with parts of the PPV cube that are actually farther away.
-
-The PPP cube is also not always accurate. Computing the distribution of reddening with distance in a single on-sky pixel of the PPP cube involves simultaneously solving for the distance, reddening, and intrinsic appearence of the stars in that on-sky pixel. For a single star, these parameters are clearly completely degenerate. CITET GREEN+2014, among others (maybe CITE the usual suspects on this), have shown that this degeneracy can be broken by jointly analyzing all of the stars along a given line of sight, given certain conditions on the individual stars' signal-to-noise ratios and how well the sightline is sampled. The effectiveness of this degeneracy breaking is, in large part, what determines the accuracy of the distance-reddening profile. Parts of the PPP cube with relatively low signal-to-noise ratio stellar observations (i.e. highly reddened areas) or relatively low stellar densities will have less accurate distance-reddening profiles. These inaccuracies translate directly into distance-velocity profile inaccuracies in our solutions. 
-
-As is described in section \ref{sec:data}, we convert this reddening cube into a spatial map of the ISM by scaling it by a constant factor. This constant factor is the product of the extinction to color excess ratio $R_V$ and the dust-to-gas ratio (DGR). By assuming this factor is constant, we ignore the fact that $R_V$ and the DGR are both known to vary. We expect $R_V$ variation to be mostly inconsequential. CITET SCHLAFLY 2016 have shown that $R_V$ towards the vast majority of typical Milky Way stars is between 3 and 3.7. This variation in $R_V$ translates to a 20\% systematic uncertainty on $A_V$.
-
-DGR variations have the potential to introduce larger spatially-varying biases into our ISM mass PPP cube, but these biases are still expected to be smaller than those induced by CO-dark gas. Studies of the Milky Way DGR using dust and gas emission (e.g. CITE PLANCK+Fermi, REACH+2015) and elemental depletions (CITE JENKINS) find that the DGR increases by a factor of about 3 from diffuse neutral to dense molecular gas. 
-
-REGULARIZATION
-
-\subsubsection{Cumulative effect}
-REGIMES WE DEFINITELY BELIEVE
-
-REGIMES WE DON'T QUITE BELIEVE YET
+Despite all of these ways in which our assumptions clearly fail, kinetic tomography still produces \emph{pretty good} results in the regimes we can currently test (see sections \ref{sec:KT-validation} and \ref{sec:rotation_curve}). 
+The kinetic tomography solution has not yet been tested outside of the two limiting cases of the detailed velocities of the environs of HMSFRs and the azimuthally averaged velocities of most of the near half of the galaxy.
+Studies attempting to apply kinetic tomography outside of those two rather narrowly defined cases will need to carefully demonstrate the robustness of their conclusions to the lengthy list of likely sources of systematic error given above.
 
 \subsection{Catastrophic outliers}
 \label{sec:discussion-catastrophic}
+FOR WHATEVER REASON, THE BAD MASERS JUST REALLY DON'T LOOK VERY DIFFERENT FROM THE GOOD MASERS. 
 
-\subsection{Something else to talk about}
+THE ONE THING, WHICH IS HARD TO QUANTIFY BUT MAAAAAYBE SORT OF THERE IS THAT THE OUTLIERS' VELOCITIES ARE PRETTY DIFFERENT FROM THE VELOCITIES OF THEIR NEIGHBORS? 
+
+HOW CAN WE TRY TO QUANTIFY THIS -- PICK A NUMBER OF NEAREST NEIGHBORS (SELECTED IN 3D), LOOK AT DISTRIBUTION OF STANDARD DEV OF THOSE NEIGHBORS' VELOCITIES, SEE WHERE THE OUTLIERS FALL IN IT
+
+IF, AND THAT'S STILL AN IF, "THESE ARE DIFFERENT FROM THEIR NEIGHBORS AND THEIR NEIGHBORS LOOK LIKE THE GAS" ENDS UP BEING TRUE, HOW CAN WE INTERPRET THAT? WELL, MAYBE THE OUTLIERS ARE THE ONES WHAT GOT KICKED IN THE PROCESS OF FORMATION, SO THEIR KINEMATICS HAVE DECOUPLED FROM THE GAS.
+
+AND ANOTHER THING -- ARE THESE SOURCES SYSTEMATICALLY _OLDER_? BECAUSE YOU'D KIND OF EXPECT THE OLD STUFF TO HAVE DECOUPLED MORE FROM THE GAS, RIGHT? MAYBE THERE'S A DIFFERENCE IN TERMS OF MASER TYPE, AS WELL?
+
+\subsection{Something else to talk about?}
