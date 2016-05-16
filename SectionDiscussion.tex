@@ -3,7 +3,7 @@
 
 \subsection{Ways in which our assumptions can fail}
 \label{sec:discussion-systematics}
-In our description of kinetic tomography, we make three main assumptions -- we can linearly scale data cubes of gas and dust tracers to get accurate PPV and PPP maps of the ISM, the distribution of velocities associated with a single PPP voxel can be well-approximated by a narrow Gaussian, and the center of the velocity Gaussian associated with a PPP voxel should not be too different from the centers of the velocity Gaussians associated with that voxel's neighbors in $\glon$ and $\glat$. 
+In our description of kinetic tomography, we make three main assumptions -- we can linearly scale data cubes of gas and dust tracers to get accurate PPV and PPP maps of the ISM, the distribution of velocities associated with a single PPP voxel can be well-approximated by a narrow Gaussian, and insisting that the central velocities of neighboring PPP voxels should be similar regularizes the PPPV solution in a valid and useful way.
 We have not made the claim that kinetic tomography will be in any sense \emph{optimal} (CITE DUSTIN'S APRIL FOOLS PAPER) if these assumptions are true, but we have made the claim that kinetic tomography will be \emph{pretty good}. 
 To what extent do these assumptions appear to be true of the data we have to work with?
 How does the failure of some or all of these assumptions affect the kinetic tomography solution? 
@@ -27,21 +27,34 @@ In both cases, the reddening-derived total column is noticeably smaller than the
 The spatial distribution of sightlines in the blue and red areas is shown in figure \ref{fig:tracer_syst_spatial} along with the on-sky positions of the HMSFRs from section \ref{sec:KT-validation}. 
 The low-column sightlines with less reddening-traced than gas-traced total column, which are marked in blue, all contain gas at large heights above the Galactic plane. 
 This gas is not well-traced by reddening because (1) there are fewer stars at large heights above the Galactic plane, limiting the maximum distance accurately described by the PPP cube at high latitude; and (2) the dust-to-gas ratio at large heights above the Galactic plane is thought to be lower than it is in the Galactic plane CITATION. 
-Since we only use sightlines with $\glat$ between $-10^\circ$ and $+\10^\circ$ and most of the low-column under-reddened gas is outside of this region, we do not currently need to worry about this effect.
+Since we only use sightlines with $\glat$ between $-10^\circ$ and $+10^\circ$ and most of the low-column under-reddened gas is outside of this region, we do not currently need to worry about this effect.
 
 The high-column sightlines with less reddening-traced than gas-traced total column are marked in red.
-These sightlines pass through dense regions in molecular clouds and/or the Galactic plane within the solar circle. 
+These sightlines pass through dense parts of molecular clouds and/or the Galactic plane within the solar circle. 
 In both cases, the PPP cube underestimates the total column because a high-reddening feature nearby, be it the galactic center or the dense molecular cloud, blocks out more distant stars. 
 Since the gas tracers are measured in emission rather than absorption, the PPV cube includes the more distant parts of the ISM which are missing from the PPP cube. 
 Secondary effects, such as variations in dust absorption properties in dense environments, may also play a role.
 
-The most obvious effect of 
 
-The second assumption
+The second assumption, that the distribution of velocities associated with a single voxel in the PPP cube can be accurately approximated by a narrow Gaussian, is intuitively wrong but works well-enough in practice for much of the volume covered by the PPP cube.
 
-The third assumption
+WHAT'S THE ARGUMENT HERE? ASSUME THAT THIS IS BASICALLY TRUE FOR A VOXEL WHICH IS "SMALL ENOUGH" IN PHYSICAL TERMS, I.E. IN DX, DY, DZ RATHER THAN DL, DB, DMU. HOW BIG CAN THIS VOXEL BE? 
 
-Despite all of these ways in which our assumptions clearly fail, kinetic tomography still produces \emph{pretty good} results in the regimes we can currently test (see sections \ref{sec:KT-validation} and \ref{sec:rotation_curve}). 
+TWO LIMITING CASES -- VOXEL IS SMALL ENOUGH THAT THE ASSUMPTION IS VERY GOOD, VOXEL IS BIG ENOUGH THAT THE V DISTRIBUTION CONTAINS MULTIPLE BIG PEAKS. HOW MANY DISTINCT VELOCITY THINGS ARE THERE IN A PARSEC-DEEP THING?
+
+TWO MORE LIMITING CASES -- THE ISM AS A BUNCH OF CLUMPS WHICH MOVE A LOT RELATIVE TO EACH OTHER VS. THE ISM AS A THING WHOSE VELOCITY FIELD VARIES PRETTY SMOOTHLY FOR THE MOST PART EXCEPT FOR SOME SMALL PLACES. 
+
+LET'S THINK ABOUT HOW THESE TWO CONCEPTS -- VOXEL SIZE AND ISM VELOCITY STRUCTURE SCALE -- INTERACT. 
+TAKE THE JITTERY ISM CASE. A VOXEL WHICH IS "SMALL ENOUGH" CONTAINS ONE ``LUMP''. A VOXEL BECOMES TOO BIG WHEN IT CONTAINS MULTIPLE LUMPS WITH DIFFERENT ENOUGH VELOCITIES THAT THEIR VELOCITY GAUSSIANS DON'T ADD UP TO ~ANOTHER GAUSSIAN. SO, THEIR VELOCITIES SHOULD DIFFER BY MORE THAN SOME FRACTION OF EACH LUMP'S INTERNAL DISPERSION. 
+
+TAKE THE SMOOTH ISM CASE. IF THE MASS DISTRIBUTION IS COMPARABLY SMOOTH, THEN THE VELOCITY DISTRIBUTION OF THE VOXEL IS A CONVOLUTION OF A GAUSSIAN WITH A WIGGLY TOPHAT. IF THE TOPHAT ISN'T ALL THAT MUCH WIDER COMPARED TO THE GAUSSIAN, I.E. IF THE CHANGE IN ROTATION CURVE + LOW FREQUENCY STREAMING MOTIONS ACROSS A VOXEL IS SOME FRACTION OF THE ``SMALL VOXEL'' VELOCITY DISPERSION, THEN THINGS ARE FINE. 
+
+
+The third assumption is that 
+
+
+
+Despite all of the ways in which our assumptions are clearly not always true, kinetic tomography still produces \emph{pretty good} results in the regimes we can currently test (see sections \ref{sec:KT-validation} and \ref{sec:rotation_curve}). 
 The kinetic tomography solution has not yet been tested outside of the two limiting cases of the detailed velocities of the environs of HMSFRs and the azimuthally averaged velocities of most of the near half of the galaxy.
 Studies attempting to apply kinetic tomography outside of those two rather narrowly defined cases will need to carefully demonstrate the robustness of their conclusions to the lengthy list of likely sources of systematic error given above.
 
