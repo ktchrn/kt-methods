@@ -43,14 +43,21 @@ TWO LIMITING CASES -- VOXEL IS SMALL ENOUGH THAT THE ASSUMPTION IS VERY GOOD, VO
 TWO MORE LIMITING CASES -- THE ISM AS A BUNCH OF CLUMPS WHICH MOVE A LOT RELATIVE TO EACH OTHER VS. THE ISM AS A THING WHOSE VELOCITY FIELD VARIES PRETTY SMOOTHLY FOR THE MOST PART EXCEPT FOR SOME SMALL PLACES. 
 
 LET'S THINK ABOUT HOW THESE TWO CONCEPTS -- VOXEL SIZE AND ISM VELOCITY STRUCTURE SCALE -- INTERACT. 
-TAKE THE JITTERY ISM CASE. A VOXEL WHICH IS "SMALL ENOUGH" CONTAINS ONE ``LUMP''. A VOXEL BECOMES TOO BIG WHEN IT CONTAINS MULTIPLE LUMPS WITH DIFFERENT ENOUGH VELOCITIES THAT THEIR VELOCITY GAUSSIANS DON'T ADD UP TO ~ANOTHER GAUSSIAN. SO, THEIR VELOCITIES SHOULD DIFFER BY MORE THAN SOME FRACTION OF EACH LUMP'S INTERNAL DISPERSION. 
+TAKE THE JITTERY ISM CASE. A VOXEL WHICH IS "SMALL ENOUGH" CONTAINS ONE ``LUMP''. A VOXEL BECOMES ``TOO BIG'' WHEN IT CONTAINS MULTIPLE LUMPS WITH DIFFERENT ENOUGH VELOCITIES THAT THEIR VELOCITY GAUSSIANS DON'T ADD UP TO ~ANOTHER GAUSSIAN. SO, THEIR VELOCITIES SHOULD DIFFER BY MORE THAN SOME FRACTION OF EACH LUMP'S INTERNAL DISPERSION. 
 
-TAKE THE SMOOTH ISM CASE. IF THE MASS DISTRIBUTION IS COMPARABLY SMOOTH, THEN THE VELOCITY DISTRIBUTION OF THE VOXEL IS A CONVOLUTION OF A GAUSSIAN WITH A WIGGLY TOPHAT. IF THE TOPHAT ISN'T ALL THAT MUCH WIDER COMPARED TO THE GAUSSIAN, I.E. IF THE CHANGE IN ROTATION CURVE + LOW FREQUENCY STREAMING MOTIONS ACROSS A VOXEL IS SOME FRACTION OF THE ``SMALL VOXEL'' VELOCITY DISPERSION, THEN THINGS ARE FINE. 
+TAKE THE SMOOTH ISM CASE. IF THE MASS DISTRIBUTION IS COMPARABLY SMOOTH, THEN THE VELOCITY DISTRIBUTION OF THE VOXEL IS A CONVOLUTION OF A GAUSSIAN WITH A WIGGLY TOPHAT. IF THE TOPHAT ISN'T ALL THAT MUCH WIDER THAN THE GAUSSIAN, I.E. IF THE CHANGE IN ROTATION CURVE + LOW FREQUENCY STREAMING MOTIONS ACROSS A VOXEL IS SOME FRACTION OF THE ``SMALL VOXEL'' VELOCITY DISPERSION, THEN THINGS ARE FINE.
 
+DUE TO THE LIMITATIONS OF THE GSF CUBE, CASE 1 IS UNLIKELY. THE LIMITATION HERE IS THAT IF YOU'VE GOT ONE MOLECULAR CLOUD ALONG THE LINE OF SIGHT, THAT'S GENERALLY ENOUGH TO MAKE YOU INCOMPLETE TO ANY ADDITIONAL MOLECULAR CLOUDS PAST THE FIRST -- THAT FALLS UNDER THE FIRST FAILURE MODE. WHENEVER CASE 2 APPLIES, THE VELOCITY WIDTH OF THE GAUSSIANS WILL BE OVERESTIMATED. WE ACTUALLY SEE THIS OUT PAST 8 OR 10 KPC OR SO. WE DON'T CARE ABOUT THAT SORT OF DISTANCE, SINCE WE'RE NEVER EVEN REMOTELY COMPLETE OUT THERE ANYWAY.
 
-The third assumption is that our regularization scheme, insisting that neighboring pixels have similar 
+The third assumption is that our regularization scheme is (1) informative enough to 
 
+THIS IS A VERY IN-DEPTH EXPLORATION OF FAILURE MODES THAT I CARE ABOUT. WHICH OF THESE ARE LIKELY TO BE OF INTEREST TO ANYONE ELSE EVER? IMAGINE THAT YOU'VE JUST FINISHED GIVING YOUR TALK AND NOW YOU'RE TRYING TO EXPLAIN THE WAYS IN WHICH THINGS *COULD* BE BROKEN TO BOB. 
 
+THERE ARE A FEW WAYS IN WHICH OUR ASSUMPTIONS PRETTY CLEARLY FAIL. 
+JUST TO BE CLEAR, THE BIG ASSUMPTION IS THAT THERE'S A WAY OF CORRECTLY CRINKLING UP THE DISTANCE CUBE INTO VELOCITY SPACE SUCH THAT THE RESULT WILL LOOK LIKE THE VELOCITY MAP. 
+A SECONDARY ASSUMPTION IS THAT IF THERE'S MORE THAN ONE WAY OF CRINKLING THE DISTANCE CUBE, THEN OUR REGULARIZATION TECHNIQUE IS GOOD ENOUGH THAT WE'RE PICKING ONE THAT'S *PRETTY CLOSE* TO REALITY. 
+
+THE BIG ASSUMPTION, THAT THERE'S A WAY OF CORRECTLY CRINKLING UP THE DISTANCE CUBE, WILL PRETTY OBVIOUSLY BE WRONG IF THERE'S STUFF IN ONE CUBE THAT'S NOT IN THE OTHER CUBE AND VICE VERSA. 
 
 Despite all of the ways in which our assumptions are clearly not always true, kinetic tomography still produces \emph{pretty good} results in the regimes we can currently test (see sections \ref{sec:KT-validation} and \ref{sec:rotation_curve}). 
 The kinetic tomography solution has not yet been tested outside of the two limiting cases of the detailed velocities of the environs of HMSFRs and the azimuthally averaged velocities of most of the near half of the galaxy.
@@ -68,26 +75,41 @@ IF, AND THAT'S STILL AN IF, "THESE ARE DIFFERENT FROM THEIR NEIGHBORS AND THEIR 
 
 AND ANOTHER THING -- ARE THESE SOURCES SYSTEMATICALLY _OLDER_? BECAUSE YOU'D KIND OF EXPECT THE OLD STUFF TO HAVE DECOUPLED MORE FROM THE GAS, RIGHT? MAYBE THERE'S A DIFFERENCE IN TERMS OF MASER TYPE, AS WELL?
 
-\subsection{The surprising (?) strength of large-scale streaming motions}
-THIS CAN BE A COMMENT ABOUT THE EXTREME ~MAGNITUDE~ OF SPATIALLY DEVIATIONS FROM CIRCULAR ROTATION, SINCE THAT SEEMED TO BE A COMMENT-WORTHY THING.
-BASICALLY SOMETHING ALONG THE LINES OF "STUFF IS MOVING AROUND A BUNCH, AND EVEN IF WE DON'T GET ~HOW~ IT'S MOVING AROUND EXACTLY RIGHT OVER THE STUFF'S FULL EXTENT."
+\subsection{On the plausibility and implications of our gas streaming motions}
+While the exact shapes and magnitudes of the streaming motions in our velocity map depend strongly on the assumed galactic parameters (galactocentric distance to the sun, rotation curve, solar motion relative to the rotaion curve), there is no choice of galactocentric distance, \emph{flat} rotation curve, and solar motion that can completely remove them (see Figure 4 pies).
+If we limit ourselves to actually plausible galactic parameter sets (panels a, b, c of 4 pies) we see streaming motions on $\sim$ 1 kpc scales with magnitudes in excess of 15 km/sec. 
+This is true even if we restrict ourselves to the nearest 5 kpc and is true for any of the three plausible parameter sets. 
+These gas motions would be perfectly reasonable if the Milky Way were an obvious grand design spiral such as M83 (cite that nice paper w/the streaming motions). 
+Since it is not, we should first ask if they are astrophysically plausible in a a more humble sort of spiral galaxy such as our own. 
 
-WHY IS THIS INTERESTING? WELLLLLL, FIRST POINT -- THERE'S THIS ARGUMENT, RIGHT, ABOUT HOW THE HMSFRS ARE, IN ODD AND PUTATIVELY PAIRWISE-INDEPENDENT WAYS, BIASED TRACERS OF GAS MOTIONS. 
-THIS ARGUMENT WAS BROUGHT BOTH IN OFFENSE (THE HMSFRS ARE MOVING IN FUNNY WAYS, SEE, SO YOU CAN'T USE 'EM TO GET CLEAN MEASUREMENTS OF DYNAMICS) AND IN DEFENSE (THE HMSFRS ARE MOVING IN SUCH FUNNY WAYS BECAUSE THEY'RE KINDA COMPACT-ISH OBJECTS WAYS NOW SO MAYBE THEY'RE STARTING TO GET DYNAMICALLY HEATED). 
-WHAT WE GET TO SAY TO THIS POINT IS THAT THE HMSFRS, FOR THE MOST PART, SEEM TO BE PRETTY ENTRAINED IN THEIR LOCAL GAS FLOWS, AND BY LOCAL GAS FLOWS WE MEAN THE FLOWS IN A ~0.5KPC PATCH AROUND THEM.
-MORE COLLOQUIALLY, MUCH OF THE MOTION OF AN IN INDIVIDUAL HMSFR SEEMS TO BE DUE TO THE GENERAL SLOSHING OF THE ENTIRE TUB, RATHER THAN TO SOME PECULIAR JITTER. (CHECK HOW MUCH IS SAID ABOUT THIS IN THE USUAL SOURCES).
+Not unexpectedly, we will argue that these spatially extended, high magnitude motions are indeed plausible.
+Within 2 kpc of the Sun, the RAVE survey has detected stellar streaming of comparable spatial extent and magnitude (S2012). They interpret these motions as evidence of the gravitaional influence of the Perseus spiral arm.
+While the dynamics of stars and gas in s spiral potential will not necessarily be the same, this spiral-induced stellar streming offers a an explanation for gas streaming of an essentially appropriate magnitude.
 
-FIRST AND A HALFTH POINT MIGHT BE DANGLING THE NET CHANGE OF THE DISTANCE TO A FEW OBJECTS IN A (E.G., GOODMAN MOLECULAR CLOUD) CATALOG THAT HAVE GOT A RELATIVELY INDEPENDENT DISTANCE AS WELL? JUST TO BRING HOME HOW ONE HAS GOT TO TRY TO DO SOMETHING ABOUT THE HIGH-MAGNITUDE AND LARGE-SCALE STREAMING MOTIONS IF ONE IS TRYING TO DO KINEMATIC DISTANCES. 
+Streaming motions 3-5 kpc away in the inner galaxy can be associated with the dynamical influence of the Galactic bar. 
+This interpretation is bolstered by the similarity of our non-flat rotation curve to that of Clemens (198?), whose shape and deviation magnitude 3-5 kpc from the Galactic center can be explained by the proximity of the bar to the first quadrant tangent points (Incorrect Rotation Curve). 
 
-SECOND POINT -- DOES THE WAVELENGTH/SHAPE OF THE GENERAL TUB-SLOSH TELL US ANYTHING, RIGHT OFF THE BAT? (CHECK THE TW+ PAPER ON FOURIER MODE DECOMPOSITION OF EXTERNAL GALAXIES TO GET GUIDANCE)
-CAN WE READ OFF A NUMBER OF SPIRAL ARMS? IS THERE AN OBVIOUS PATTERN DIFFERENCE BETWEEN FLOCCULENT AND SDW VELOCITY PATTERNS? (LOOK AT THE FOUR CONVERGENCE/DIVERGENCE FIELDS IN DOBBS+)
-THE OLD CHI-BY-EYE CAN MAYBE TELL US SOMETHING ABOUT THE FLOCCULENCE VS SDW-NESS OF OUR GALAXY.
+Our rotation curve is in general also quite similar to many that have been measured by the GHASP survey (CITE). 
+The GHASP survey used $\Halpha$ measurements to derive rotation curves for NUMBER disk galaxies with NUMBER kpc of the Milky Way with masses ranging from NUMBER to NUMBER times the mass of the Milky Way.
+These rotation curves often show the same sort of $\sim 15$ km/sec, $\sim 1$ kpc velocity ``corrugations'' that we see in our rotation curve. 
+The GHASP collaboration derived separate rotation curves for the advancing and receding sides of their galaxies.
+Often, the central radii of the velocity corrugations are slightly different on different sides of a galaxy.
+These shifts imply that these deviations from flat rotation are caused by non-axisymmetric perturbations, such as spiral arms and/or bars.
 
-THIRD POINT -- CAN WE PUT THESE MOTIONS IN AN EXTRAGALACTIC CONTEXT? E.G. HOW DO THEY MATCH UP WITH THE LARGE DISPERSIONS SEEN IN HALPHA BY RAYMOND AND CO? (ASK RAYMOND ABOUT THIS).
+Combining these pieces of circumstantial intra- and extragalactic evidence, we can conclude that $\sim 1$ kpc-scale $\sim 15$ km/sec gas streaming motions in a non-grand design spiral galaxy can not immediately be dismissed as unphysical. 
+We can also loosely associate these motions with spiral arms and the bar at large (small) and small (large) galactocentric (heliocentric) radii.
 
+If these motions are real, what conclusions can we draw from them without fixing a galactic parameter set? One immediate implication of these streaming motions is that improving the accuracy of kinematic distances will require accounting for large-scale motions beyond the rotation curve. Junichi+ (20??), e.g., estimated the distance distortion induced by assuming a flat rotation curve in a model galaxy non-circular HMSFRs velocities comparable to those of the Reid+09 HMSFRs. 
+THERE ARE IMPLICATIONS
 
-SUMMING UP IN A FIFTH PARAGRAPHS AFTER AN INTRODUCTION AND THREE BODY PARAGRAPHS (UGH, HOW SCHOLASTIC), OUR HIGH-MAGNITUDE STREAMING MOTIONS ARE SPATIALLY PRETTY LARGE, PROBABLY REAL, AND COINCIDENT WITH THE HMSMS OF THE HMSFRS.  
-THIS IMPLIES THAT THE HMSFRS ARE MORE TRACING BIGGISH MOTIONS THAN GETTING DYNAMICALLY HEATED. 
-WHILE WE CAN SAY VERY LITTLE ABOUT MOTIONS ON SMALL SCALES AND OUR UNDERSTANDING OF OUR FOURIER SPACE COVERAGE, OUR WINDOW FUNCTION, ETC. IS OBVIOUSLY BAD, JUST LOOKING AT A COUPLE SETS OF SIMS AND OUR MAPS SIDE-BY-SIDE SEEMS TO SUGGEST, ~EXTREMELY LOOSELY~, THAT THE GALAXY IS MORE (FLOCCULENT/SDW-ISH) THAN (SDW-ISH/FLOCCULENT). 
-IN AN EXTRAGALACTIC CONTEXT, ONE COULD IMAGINE HII REGIONS ENTRAINED IN THESE LARGE FLOWS + RESOLUTION & BEAMSMEARING EFFECTS TEAMING UP TO EXPLAIN SOME OF THOSE LARGE HALPHA DISPERSIONS.
-END THE NEW MATERIAL PART OF THE WORK, TRIUMPHANTLY, WITH THESE WILD SPECULATIONS.
+The agreement between the gas and expanded HMFSR sample's line-of-sight velocities (see Section US WINNING) suggests that the non-circularity that the non-circularity of the HMSFR's velocities is real. 
+An argument against that possibility appeared shortly after the publication of Reid+ (2009), an early analysis of an a subset of the full R+14 sample, in McMillan and Binney (2010); this argument has been repeated with some frequency in discussions of discrepancies between Galactic parameters derived from the HMSFRs and other tracers (the usual suspect and hopefully someone else too).
+If the HMSFRs' motions are real and due to orbital ellipticity, the argument goes, then the implied ellipticity of their orbits is higer than that of stars that are young but already out of their birth clouds. 
+Since HMSFRs are temoraly closer to collisional, and hence dynamically colder, dense gas than the collisionless, and hence dynamically hotter, young stars, this dynamical state of things is not physically plausible. 
+McMillan and Binney (2010) suggest some alternatives, including a bias towards bluer line-of-sight velocities, to reduce the required orbital ellipticity and bring the velocity dispersions of the two ostensibly similar populations closer together.
+
+The agreement between the expanded HMSFR sample's line-of-sight velocities and our (completely independently) derived map suggests that the HMSFRs deviations from flat rotation are real and not due to measurement biases.
+The spatial scale and similarity to spiral- and bar-induced streaming of non-circular motions in our map also suggests a resolution to the velocity dispersion inconsistency. The HMSFRs are moving coherently, with the gas they are embedded in, rather than randomly. Once the gas and theembedded HMSFRs leave the perturbations they are currently passing through, their apparent velocity disperion as a population will presumably fall to something closer to that of the current generation of young stars.
+
+Conversely, the McMillan and Binney argument and the agreement between the HMSFR velocities and ourmap combine into yet another piece of circumstancial evidence in favor of our streaming motions being associated with spiral- and bar-induced perturbations. 
+If interpreting the HMSFR motions as stable elliptical orbits is out of the qustion, then interpreting the (if anything dynamically even colder) gas motions as stable elliptical motions must be even less acceptable.
