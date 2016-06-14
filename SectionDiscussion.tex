@@ -1,67 +1,33 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Ways in which our assumptions can fail}
+\subsection{Unmet assumptions and their potential consequences}
 \label{sec:discussion-systematics}
-In our description of kinetic tomography, we make three main assumptions -- we can linearly scale data cubes of gas and dust tracers to get accurate PPV and PPP maps of the ISM, the distribution of velocities associated with a single PPP voxel can be well-approximated by a narrow Gaussian, and insisting that the central velocities of neighboring PPP voxels should be similar regularizes the PPPV solution in a valid and useful way.
-We have not made the claim that kinetic tomography will be in any sense \emph{optimal} (CITE DUSTIN'S APRIL FOOLS PAPER) if these assumptions are true, but we have made the claim that kinetic tomography will be \emph{pretty good}. 
-To what extent do these assumptions appear to be true of the data we have to work with and how does their failure affect the kinetic tomography solution?
+The mathematical model behind kinetic tomography contains some simplifying assumptions about the input data and the structure of the ISM in PPDV space. 
+We assume the input data, meaning the reddening and gas line emission cubes, are tracing the same bits of ISM and can be converted to distributions of matter in PPD and PPV space, respectively, by the scalings and additions described in Section DATA.
+We assume that the distribution of VLOS in a voxel of the PPD cube is Gaussian and that the centers of ($\glons$, $\glat$)-neighboring velocity Gaussians are close in the square-difference sense. 
+Ideally, we would have a way of formally, meaning more-or-less analytically, characterizing how the kinetic tomography solution degrades as each of these assumptions becomes less valid.
+This would serve as a more general complement to our empirical tests of the kinetic tomography solution at the locations of HMSFRs (see section HMSFRs).
 
-The first assumption, that linearly scaling data cubes of gas and dust tracers yields accurate PPV and PPP maps of the ISM, has several localized failure modes and two global failure modes. 
-The local failure modes are due to observational and astrophysical phenomena, such as $\HI$ self-absorption and variations in the dust reddening law, which produce localized non-linearities and variations in the conversion from tracer to mass. 
-The global failure modes arise from the maximum distance mapped by the dust tracer cube being shorter than the maximum distance mapped by the gas tracer cubes. 
-By construction, the gas tracers cubes map all gas within a certain velocity range. 
-Gas within this velocity range can be arbitrarily far away. 
-As a result, the gas tracer cubes map out the entire galaxy.
-The dust tracer cube is built by analyzing reddening towards stars. If there are no measurements of stars beyond some distance, the dust tracer cube cuts off.
-This cutoff can happen due to large reddenings (e.g. on the far side of the Galactic center) or the spatial structure of the Milky Way's stellar population (e.g. at large heights above the Galactic plane).
+Since we are interested in possible systematics in a PPDV map of the ISM, we are only interested in those failure modes of our assumptions that can occur in the actual ISM; an analytic characterization of complex systematics in an analysis of the ISM of an entire galaxy requires an analytic description of the ISM of an entire galaxy.
+Unfortunately, these sorts of analytic descriptions do not currently exist.
+An alternative, semi-empirical, way to estimate the accuracy of kinetic tomography over a broad range of conditions is to apply it to synthetic observations of simulated galaxies and then explore what factors the accuracy of the results depends on. 
+Most of the steps involved in that procedure are, on their own, beyond the scope of this work. 
+This means that we do not have an estimate of the systematic or random uncertainties of the PPDV solution or the map of VLOS as a function of $\glon$, $\glat$, and distance. 
+Instead, we will merely list some of the ways in which our assumptions are either known or are likely to fail and advise the reader to be careful in their interpretation of the VLOS maps in figure PIES, particularly away from the points where we have been able to empirically validate it.
 
-We can get an idea of the magnitude and extent of these different PPV-PPP cube mistmatches by comparing the projections of the PPV and PPP cubes to the $\glon$-$\glat$ plane. 
-The distribution of gas-derived versus reddening-derived total columns is shown in figure \ref{fig:tracer_syst_values}. 
-The two sets of total columns are mostly consistent with each other, i.e. lie along the orange line. 
-There are two regimes in which the total columns are not consistent -- at gas columns below $10^{21}$ cm$^{-2}$ (marked in  blue) and at gas columns above CHECK THE NUMBER $3 \times 10^{22}$ cm$^{-2}$ (marked in red). 
-In both cases, the reddening-derived total column is noticeably smaller than the gas-derived total column.
+First, we discuss failures of the assumptions about the data -- that the conversions from reddening and gas line emission to distributions of ISM mass in PPD and PPV space given in section DATA are accurate and that every bit of mass that is present in either one of the PPD and PPV cubes is also present in the other. 
+The most egregious failure mode is that the PPD cube covers a limited distance range while the PPV cube extends to arbitrarily large distance. 
+The distance range of the PPD cube is set by the three-dimensional distribution of stars that have been detected by PanSTARRS, the survey used to build the reddening map.
+The distance to the farthest star along a ($\glon$, $\glat$) sightline depends on both the intrinsic distribution of stars and the amount of dust along the line of sight. 
+As a result, the PPD cube does not include interstellar matter on the far side of the Galaxy (CITE GREEN), even though this matter is present in the PPV cube.
 
-The spatial distribution of sightlines in the blue and red areas is shown in figure \ref{fig:tracer_syst_spatial} along with the on-sky positions of the HMSFRs from section \ref{sec:KT-validation}. 
-The low-column sightlines with less reddening-traced than gas-traced total column, which are marked in blue, all contain gas at large heights above the Galactic plane. 
-This gas is not well-traced by reddening because (1) there are fewer stars at large heights above the Galactic plane, limiting the maximum distance accurately described by the PPP cube at high latitude; and (2) the dust-to-gas ratio at large heights above the Galactic plane is thought to be lower than it is in the Galactic plane CITATION. 
-Since we only use sightlines with $\glat$ between $-10^\circ$ and $+10^\circ$ and most of the low-column under-reddened gas is outside of this region, we do not currently need to worry about this effect.
-
-The high-column sightlines with less reddening-traced than gas-traced total column are marked in red.
-These sightlines pass through dense parts of molecular clouds and/or the Galactic plane within the solar circle. 
-In both cases, the PPP cube underestimates the total column because a high-reddening feature nearby, be it the galactic center or the dense molecular cloud, blocks out more distant stars. 
-Since the gas tracers are measured in emission rather than absorption, the PPV cube includes the more distant parts of the ISM which are missing from the PPP cube. 
-Secondary effects, such as variations in dust absorption properties in dense environments, may also play a role.
+The remaining failure modes are less egregious than missing more than half of the galaxy, but may still cause some problems.
+They are: the presence of dark gas, which can be some combination of optically thick $\atomH$ and CO-dark $\molH$ (cite, e.g. Fermi+Planck); variation of the conversion factor between CO emission and amount of $\molH$ (cite Bolatto review?); and variation of the dust-to-gas ratio (many people one could cite). 
+Each of these could cause the mass of a bit of ISM in the PPD and PPV cubes to differ by a factor of around two.
 
 
-The second assumption, that the distribution of velocities associated with a single voxel in the PPP cube can be accurately approximated by a narrow Gaussian, is intuitively wrong but works well-enough in practice for much of the volume covered by the PPP cube.
 
-WHAT'S THE ARGUMENT HERE? ASSUME THAT THIS IS BASICALLY TRUE FOR A VOXEL WHICH IS "SMALL ENOUGH" IN PHYSICAL TERMS, I.E. IN DX, DY, DZ RATHER THAN DL, DB, DMU. HOW BIG CAN THIS VOXEL BE? 
-
-TWO LIMITING CASES -- VOXEL IS SMALL ENOUGH THAT THE ASSUMPTION IS VERY GOOD, VOXEL IS BIG ENOUGH THAT THE V DISTRIBUTION CONTAINS MULTIPLE BIG PEAKS. HOW MANY DISTINCT VELOCITY THINGS ARE THERE IN A PARSEC-DEEP THING?
-
-TWO MORE LIMITING CASES -- THE ISM AS A BUNCH OF CLUMPS WHICH MOVE A LOT RELATIVE TO EACH OTHER VS. THE ISM AS A THING WHOSE VELOCITY FIELD VARIES PRETTY SMOOTHLY FOR THE MOST PART EXCEPT FOR SOME SMALL PLACES. 
-
-LET'S THINK ABOUT HOW THESE TWO CONCEPTS -- VOXEL SIZE AND ISM VELOCITY STRUCTURE SCALE -- INTERACT. 
-TAKE THE JITTERY ISM CASE. A VOXEL WHICH IS "SMALL ENOUGH" CONTAINS ONE ``LUMP''. A VOXEL BECOMES ``TOO BIG'' WHEN IT CONTAINS MULTIPLE LUMPS WITH DIFFERENT ENOUGH VELOCITIES THAT THEIR VELOCITY GAUSSIANS DON'T ADD UP TO ~ANOTHER GAUSSIAN. SO, THEIR VELOCITIES SHOULD DIFFER BY MORE THAN SOME FRACTION OF EACH LUMP'S INTERNAL DISPERSION. 
-
-TAKE THE SMOOTH ISM CASE. IF THE MASS DISTRIBUTION IS COMPARABLY SMOOTH, THEN THE VELOCITY DISTRIBUTION OF THE VOXEL IS A CONVOLUTION OF A GAUSSIAN WITH A WIGGLY TOPHAT. IF THE TOPHAT ISN'T ALL THAT MUCH WIDER THAN THE GAUSSIAN, I.E. IF THE CHANGE IN ROTATION CURVE + LOW FREQUENCY STREAMING MOTIONS ACROSS A VOXEL IS SOME FRACTION OF THE ``SMALL VOXEL'' VELOCITY DISPERSION, THEN THINGS ARE FINE.
-
-DUE TO THE LIMITATIONS OF THE GSF CUBE, CASE 1 IS UNLIKELY. THE LIMITATION HERE IS THAT IF YOU'VE GOT ONE MOLECULAR CLOUD ALONG THE LINE OF SIGHT, THAT'S GENERALLY ENOUGH TO MAKE YOU INCOMPLETE TO ANY ADDITIONAL MOLECULAR CLOUDS PAST THE FIRST -- THAT FALLS UNDER THE FIRST FAILURE MODE. WHENEVER CASE 2 APPLIES, THE VELOCITY WIDTH OF THE GAUSSIANS WILL BE OVERESTIMATED. WE ACTUALLY SEE THIS OUT PAST 8 OR 10 KPC OR SO. WE DON'T CARE ABOUT THAT SORT OF DISTANCE, SINCE WE'RE NEVER EVEN REMOTELY COMPLETE OUT THERE ANYWAY.
-
-The third assumption is that our regularization scheme is (1) informative enough to 
-
-THIS IS A VERY IN-DEPTH EXPLORATION OF FAILURE MODES THAT I CARE ABOUT. WHICH OF THESE ARE LIKELY TO BE OF INTEREST TO ANYONE ELSE EVER? IMAGINE THAT YOU'VE JUST FINISHED GIVING YOUR TALK AND NOW YOU'RE TRYING TO EXPLAIN THE WAYS IN WHICH THINGS *COULD* BE BROKEN TO BOB. 
-
-THERE ARE A FEW WAYS IN WHICH OUR ASSUMPTIONS PRETTY CLEARLY FAIL. 
-JUST TO BE CLEAR, THE BIG ASSUMPTION IS THAT THERE'S A WAY OF CORRECTLY CRINKLING UP THE DISTANCE CUBE INTO VELOCITY SPACE SUCH THAT THE RESULT WILL LOOK LIKE THE VELOCITY MAP. 
-A SECONDARY ASSUMPTION IS THAT IF THERE'S MORE THAN ONE WAY OF CRINKLING THE DISTANCE CUBE, THEN OUR REGULARIZATION TECHNIQUE IS GOOD ENOUGH THAT WE'RE PICKING ONE THAT'S *PRETTY CLOSE* TO REALITY. 
-
-THE BIG ASSUMPTION, THAT THERE'S A WAY OF CORRECTLY CRINKLING UP THE DISTANCE CUBE, WILL PRETTY OBVIOUSLY BE WRONG IF THERE'S STUFF IN ONE CUBE THAT'S NOT IN THE OTHER CUBE AND VICE VERSA. 
-
-Despite all of the ways in which our assumptions are clearly not always true, kinetic tomography still produces \emph{pretty good} results in the regimes we can currently test (see sections \ref{sec:KT-validation} and \ref{sec:rotation_curve}). 
-The kinetic tomography solution has not yet been tested outside of the two limiting cases of the detailed velocities of the environs of HMSFRs and the azimuthally averaged velocities of most of the near half of the galaxy.
-Studies attempting to apply kinetic tomography outside of those two rather narrowly defined cases will need to carefully demonstrate the robustness of their conclusions to the lengthy list of likely sources of systematic error given above.
 
 \subsection{Catastrophic outliers}
 \label{sec:discussion-catastrophic}
