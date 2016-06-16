@@ -3,28 +3,12 @@
 
 \subsection{Unmet assumptions and their potential consequences}
 \label{sec:discussion-systematics}
-The mathematical model behind kinetic tomography contains some simplifying assumptions about the input data and the structure of the ISM in PPDV space. 
-We assume the input data, meaning the reddening and gas line emission cubes, are tracing the same bits of ISM and can be converted to distributions of matter in PPD and PPV space, respectively, by the scalings and additions described in Section DATA.
-We assume that the distribution of VLOS in a voxel of the PPD cube is Gaussian and that the centers of ($\glons$, $\glat$)-neighboring velocity Gaussians are close in the square-difference sense. 
-Ideally, we would have a way of formally, meaning more-or-less analytically, characterizing how the kinetic tomography solution degrades as each of these assumptions becomes less valid.
-This would serve as a more general complement to our empirical tests of the kinetic tomography solution at the locations of HMSFRs (see section HMSFRs).
-
-Since we are interested in possible systematics in a PPDV map of the ISM, we are only interested in those failure modes of our assumptions that can occur in the actual ISM; an analytic characterization of complex systematics in an analysis of the ISM of an entire galaxy requires an analytic description of the ISM of an entire galaxy.
-Unfortunately, these sorts of analytic descriptions do not currently exist.
-An alternative, semi-empirical, way to estimate the accuracy of kinetic tomography over a broad range of conditions is to apply it to synthetic observations of simulated galaxies and then explore what factors the accuracy of the results depends on. 
-Most of the steps involved in that procedure are, on their own, beyond the scope of this work. 
-This means that we do not have an estimate of the systematic or random uncertainties of the PPDV solution or the map of VLOS as a function of $\glon$, $\glat$, and distance. 
-Instead, we will merely list some of the ways in which our assumptions are either known or are likely to fail and advise the reader to be careful in their interpretation of the VLOS maps in figure PIES, particularly away from the points where we have been able to empirically validate it.
-
-First, we discuss failures of the assumptions about the data -- that the conversions from reddening and gas line emission to distributions of ISM mass in PPD and PPV space given in section DATA are accurate and that every bit of mass that is present in either one of the PPD and PPV cubes is also present in the other. 
-The most egregious failure mode is that the PPD cube covers a limited distance range while the PPV cube extends to arbitrarily large distance. 
-The distance range of the PPD cube is set by the three-dimensional distribution of stars that have been detected by PanSTARRS, the survey used to build the reddening map.
-The distance to the farthest star along a ($\glon$, $\glat$) sightline depends on both the intrinsic distribution of stars and the amount of dust along the line of sight. 
-As a result, the PPD cube does not include interstellar matter on the far side of the Galaxy (CITE GREEN), even though this matter is present in the PPV cube.
-
-The remaining failure modes are less egregious than missing more than half of the galaxy, but may still cause some problems.
-They are: the presence of dark gas, which can be some combination of optically thick $\atomH$ and CO-dark $\molH$ (cite, e.g. Fermi+Planck); variation of the conversion factor between CO emission and amount of $\molH$ (cite Bolatto review?); and variation of the dust-to-gas ratio (many people one could cite). 
-Each of these could cause the mass of a bit of ISM in the PPD and PPV cubes to differ by a factor of around two.
+In section HMSFRS, we showed that, empirically, the map of $\vlos$ in PPD space is correct, at least at 93 points coincident with HMSFRs. 
+If we add in a few assumptions about the continuity and smoothness of the ISM velocity field, then the map of $\vlos$ in PPD space should also be approximately correct \emph{near} those points. 
+Here, the exact value of the spatial scale corresponding to this \emph{nearness} depends on how continuous and smooth the velocity field actually is.
+So long as this scale is not too short, we can conjecture that the residual velocity fields shown in figure PIES are also mostly correct, as the HMSFRs are distributed quite densely in two dimensions. 
+This is roughly where this ``correctness-by-association'' approach reaches its limits -- most of the full, three-dimensional $\vlos$ map is devoid of HMSFRs.
+In any case, this combination of a partial empirical confirmation with a loosely justified heuristic is not a replacement for a formal analysis or intuitive understanding of when, and ideally why, kinetic tomography works and when it does not. 
 
 
 
