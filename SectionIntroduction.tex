@@ -13,46 +13,6 @@ To take this step forward we draw on two major kinds of data sets. The first are
 
 
 
-
-We have developed a method for deriving 1-velocity fields of the interstellar medium in the Milky Way from position-position-velocity (PPV) and position-position-position (PPP) measurements. 
-
-This method can be understood as a variation on CfR's extension of kinematic distances.
-The kinematic distance to a point at some on-sky position ($\ell$, b) and line-of-sight velocity $v$ is the distance at which a model of gas motion in that ($\ell$, b) direction is equal to $v$.
-The gas motion model is usually taken to be a galactic rotation curve. 
-
-Kinematic distances have several well-known drawbacks.
-Firstly, they are not unique in directions where different distances are assigned the same line-of-sight velocity.
-When a flat rotation curve is assumed, sightlines inside the solar circle and towards the galactic anti-center do not have unique distances. 
-Next, kinematic distances ignore the possibility of deviations from the gas motion model.
-Measurements of the distances and line-of-sight velocities of point-like objects such as masers show that deviations from azimuthally symmetric rotation, or streaming motions, are the norm rather than the exception.
-In some cases, streaming motions can mean that there is no distance corresponding to a given velocity. 
-This is known to happen towards the galactic anti-center CITE and near the galactic center CITE.
-Finally, computing kinematic distances for an entire PPV dataset yields a PPP dataset, trading one map of three-dimensional structure for another.
-Despite these drawbacks, kinematic distances are an adequate estimate of actual distances over much of the galactic plane.
-
-CfR's method improves on kinematic distances by treating them as one of a number of context clues to the distance to an object.
-Other context clues include the physical size and height above the galactic plane that a distance would imply given the object's angular size and height above the galactic plane, the presence or absence of H I 21cm self-absorption in the direction of the object, and the distances to any other objects that are known to be close to the object of interest.
-If there are enough context clues, this approach can help resolve the degeneracy between distances that correspond to the same line-of-sight velocity and can be used to detect and measure streaming motions.
-
-If we think of kinematic distances as a somewhat unstable zeroth-order approximation to the distance corresponding to a point in a PPV dataset, CfR's method is a second-order correction with improved stability properties.
-From this perspective, building on CfR's method is unlikely to lead to  significant improvements to their solution.
-Instead, we apply a rudimentary form of their approach to the complementary problem of assigning a velocity to a point in a PPP dataset.
-
-With the advent of large optical and near-infrared photometric surveys, it has become possible to build maps of the three-dimensional distribution of dust out several kiloparsecs from the Sun CITE.
-If we make some assumptions about the mixing and relative abundances of dust and gas in the ISM, we can consider these maps to be of the three-dimensional stucture of the ISM. 
-
-To get a zeroth-order velocity for a point in one of these PPP maps, we can take inspiration from kinematic distances and evaluate the galactic rotation curve at its position. 
-Even at this stage, the PPP to PPPV problem has an advantage over the PPV to PPPV problem -- the position to velocity assignment is unique, if not necessarily accurate.
-There are different possible approaches to improving this approximation.
-Our approach is to use a PPV dataset of the ISM over the same area as a guide.
-Reproducing this PPV dataset requires modestly adjusting the velocities assigned to the points in the PPP dataset.
-These adjusted velocity assignments are our PPPV map.
-
-We have checked this map against the maser measurements in CITET REID (R14). 
-Reid et al. have measured the distance to and line-of-sight velocity of a number of masers.
-Our PPPV map evaluated at the on-sky positions and distances of the masers agrees with the masers' measured line-of-sight velocities.
-This is particularly heartening considering that many of the masers are known to deviate significantly from galactic rotation.
-
 In this work, we describe our method, the map it produces, and our evaluation of this map's accuracy and precision.
 In Section \ref{sec:data}, we describe the datasets we use to make and evaluate our PPPV map.
 In Section \ref{sec:methods}, we give a detailed explanation of the PPPV mapping technique and a brief overview of how to fit a rotation curve to a PPPV map.
