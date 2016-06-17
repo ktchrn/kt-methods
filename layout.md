@@ -8,6 +8,7 @@ SectionKTMethods.tex
 figures/figure_/default_figure.png
 SectionKTChecking.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
+figures/maser_pie/maser_pie.png
 SectionRotationCurve.tex
 SectionDiscussion.tex
 figures/tracer_syst_dust_gas_distribution/tracer_syst_dust_gas_distribution.png
