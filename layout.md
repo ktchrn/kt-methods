@@ -2,7 +2,6 @@ abstract.tex
 SectionIntroduction.tex
 figures/gas_compare3/gas_compare3.png
 SectionData.tex
-figures/fig_smoothing_effect/default_figure.png
 SectionKTMethods.tex
 figures/figure_/default_figure.png
 SectionKTChecking.tex
