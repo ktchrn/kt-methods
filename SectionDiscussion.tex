@@ -19,31 +19,38 @@ Performing galaxy simulations and producing synthetic reddening and gas line emi
 \subsection{Catastrophic outliers}
 \label{sec:discussion-catastrophic}
 In Section \ref{sec:KT-validation}, we showed that the measured and KT-derived $\vlos$ values  of 94 of the 99 \Reid HMSFRs agree with each other. 
-In this section, we discuss the five HMSFRs where they do not.
+In this section, we discuss the five HMSFRs where they do not agree.
 
-The leftmost panel of Figure \ref{fig:outliers} shows the distribution of standardized residuals of the full 99 HMSFR sample along with a standard normal distribution that has been scaled to integrate to the number of HMSFRs.
-The five HMSFRs, indicated in orange, that are clearly separated from the rest are the ones where we consider the measured and KT-derived values to disagree. We will refer to these five HMSFRs as outliers.
+Panel (a) of Figure \ref{fig:outliers} shows the distribution of standardized residuals of the full 99 HMSFR sample along with a standard normal distribution that has been scaled to integrate to the number of HMSFRs.
+There are five HMSFRs, which have been indicated on the figure in orange, that are clearly separated from the rest. 
+These are the HMSFRs for which we consider the measured and KT-derived $\vlos$ values to disagree.
+We will refer to these five as the outliers.
 
-We have not been able to find an obvious reason for why those five HMSFRs, specifically, are outliers. 
-Their heliocentric and Galactocentric distances, Galactic longitudes and latitudes, and integrated dust and gas columns are not extreme.
-The differences between their measured $\vlos$ values and those of their close neighbors are typical, as are the differences between the magnitudes of their velocity three-vectors. 
-The each of the outliers, taken on its own, does not stand out from the full 99 HMSFR sample except in its standardized residuals.
+We have not been able to find an obvious reason for why these five HMSFRs, specifically, are outliers. 
+None of their properties are extreme -- they are not all clumped together; they are not particularly close to or far from the Sun; the total dust and gas columns along their sightlines are typical for HMSFRs in their vicinity; they are reasonably close to their nearest neighbors, none of which are outliers; the differences between their measured $\vlos$ values and those of their close neighbors are reasonable, as are the differences between the magnitudes of their velocity three-vectors; they do not all sit in the same spiral arm (\Reid). 
+There is no clear distinction between an outlier and its non-outlier neighbors. 
 
-If we instead consider the properties of the outliers as a sample, we find an unusual feature -- they are all between 3 and 5 kpc from the Galactic center. 
-The middle panel of Figure \ref{fig:outliers} shows the distribution of the outliers' and non-outliers' Galactocentric radii.
-If we assume that all of the HMSFRs are equally likely to be outliers, the number of outliers in an interval should follow a Poisson distribution with rate the product of the fraction of outliers in the full sample and the total number of HMSFRs in the interval. 
-This rate is shown as a solid black line in the panel of Figure \ref{fig:outliers}; the 95th and 99th percentile levels of the corresponding Poisson distributions are shown as dashed and dotted black lines.
-Clearly, there is a preference for HMSFRs to be located between 3 and 5 kpc from the Galactic center.
+While there does not appear to be a way to predict whether a specific HMSFR will definitely be an outlier, we have found that HMSFRs with $0^\circ < \glon 35^\circ$ and Galactocentric radii ($\RGC$) between 3 and 5 kpc are more likely to be outliers. 
+The distributions of outlier and non-outlier $\glon$ and $\RGC$ are shown in panels (b) and (c) of Figure \ref{fig:outliers}, and the locations of the outlier HMSFRs and some nearby non-outliers are shown in panel (d).
+By visual inspection, the outliers' $\glon$ and $\RGC$ distributions clearly deviate from those of the full sample.
 
-Is this preference an artifact of looking towards the inner galaxy, where line-of-sight confusion in the PPV cube can be particularly important?
-By a similar exercise, the distribution of outliers and non-outliers in Galactic longitude turns out to be consistent with outliers being chosen uniformly at random from the full sample. 
-A large fraction of the HMSFRs have $\glon < 35^\circ$ and the outlier fraction is quite small, so the apparent clustering of outliers at $\glon < 35^\circ$ is consistent with Poisson uncertainties.
+We can quantify this deviation by assuming that any HMSFR is equally likely to be one of the five outliers and computing the probability of finding all five in a randomly chosen subsample of the same sizes as one of our two selections.
+Since a single HMSFR can not be present in a sample twice, the appropriate distribution to use for this calculation is the hypergeometric distribution, which assumes that the subsample is chosen without replacement.
+The probabilities of finding all five outliers in a random subsample the size of the $\glon$ and $\RGC$ selections are both well below 1\%.
 
-This suggests, though admittedly does not prove, that the fidelity of the $\vrot$ map really does degrade at Galactocentric radii between 3 and 5 kpc. 
-Perhaps this is evidence of the dynamical effect of the (long) Galactic bar -- the general consensus is that the Galactic bar structure ends about 4 kpc from the Galactic center at $\glon \approx 30^\circ$ and \cite{2016arXiv160207702B}.
-We show the positions of HMSFRs near the probable end of the bar in the right panel of Figure \ref{fig:outliers}.
-While not all HMSFRs near that location are outliers, all of the outliers do seem to be near the end of the bar. 
-If this explanation is true, we would expect there to be closer agreement between HMFSRs and the KT-derived $\vlos$ map in the fourth quadrant. 
+Since every HMSFR in the $\RGC$ selection is also in the $\glon$ selection, this calculation does not tell us which selection is responsible for the enhance outlier probability. 
+To try to differentiate between the two, we can repeat the above exercise with the $\RGC$ selection as the subsample and the $\glon$ selection, rather than the full set of 99 HMSFRs, as the population. 
+The probability of finding all five outliers in a random 17-element subsample of the 31-element $\glon$ selection is about 4\%. 
+This probability is low, certainly low enough to suggest that there may be an enhancement in the outlier rate in the $\RGC$ selection over the $\glon$ selection's rate, but not enough for that to be a strong conclusion.
+This is especially true considering that we have entirely neglected the distance and outlier/non-outlier classification uncertainties.
+
+We are trying to distinguish between the two selections because they suggest different causal explanations for the increased likelihood of being an outlier. 
+If being in the $\glon$ selection is responsible for most of the effect, the likely cause is increased line-of-sight confusion. 
+The closer to $\glon$ of $0^\circ$ a sightline passes, the more matter it typically intersects near the Galactic center and, assuming the Galactic disk is roughly circular, the more matter it passes through on the opposite side of the Galaxy. 
+If instead being in the $\RGC$ selection is what matters, the cause is likely to be the complexity of ISM dynamics near the Galactic bar. 
+The distance resolution of the PPD cube declines with distance, so it would not necessarily be surprising if we were unable to spatially resolve flows with small spatial scales.
+The end of the Galactic bar, coincidentally, is generally considered to fall right in the middle of the five outliers \cite{2016arXiv160207702B}.
+
 
 \subsection{On the plausibility and implications of our gas streaming motions}
 While the exact shapes and magnitudes of the streaming motions in our velocity map depend strongly on the assumed galactic parameters (Galactocentric distance to the sun, rotation curve, solar motion relative to the rotation curve), there is no choice of Galactocentric distance, \emph{flat} rotation curve, and solar motion that can completely remove them (see Figure 4 pies).
