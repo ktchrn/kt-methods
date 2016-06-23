@@ -29,11 +29,21 @@ Their heliocentric and Galactocentric distances, Galactic longitudes and latitud
 The differences between their measured $\vlos$ values and those of their close neighbors are typical, as are the differences between the magnitudes of their velocity three-vectors. 
 The each of the outliers, taken on its own, does not stand out from the full 99 HMSFR sample except in its standardized residuals.
 
-If we instead consider the properties of the outliers as a sample, we find one unusual feature -- they are all between 3 and 5 kpc from the Galactic center. 
+If we instead consider the properties of the outliers as a sample, we find an unusual feature -- they are all between 3 and 5 kpc from the Galactic center. 
 The middle panel of Figure \ref{fig:outliers} shows the distribution of the outliers' and non-outliers' Galactocentric radii.
-If we assume that outliers can be distributed at random throughout the galaxy, 
+If we assume that all of the HMSFRs are equally likely to be outliers, the number of outliers in an interval should follow a Poisson distribution with rate the product of the fraction of outliers in the full sample and the total number of HMSFRs in the interval. 
+This rate is shown as a solid black line in the panel of Figure \ref{fig:outliers}; the 95th and 99th percentile levels of the corresponding Poisson distributions are shown as dashed and dotted black lines.
+Clearly, there is a preference for HMSFRs to be located between 3 and 5 kpc from the Galactic center.
 
+Is this preference an artifact of looking towards the inner galaxy, where line-of-sight confusion in the PPV cube can be particularly important?
+By a similar exercise, the distribution of outliers and non-outliers in Galactic longitude turns out to be consistent with outliers being chosen uniformly at random from the full sample. 
+A large fraction of the HMSFRs have $\glon < 35^\circ$ and the outlier fraction is quite small, so the apparent clustering of outliers at $\glon < 35^\circ$ is consistent with Poisson uncertainties.
 
+This suggests, though admittedly does not prove, that the fidelity of the $\vrot$ map really does degrade at Galactocentric radii between 3 and 5 kpc. 
+Perhaps this is evidence of the dynamical effect of the (long) Galactic bar -- the general consensus is that the Galactic bar structure ends about 4 kpc from the Galactic center at $\glon \approx 30^\circ$ and \cite{2016arXiv160207702B}.
+We show the positions of HMSFRs near the probable end of the bar in the right panel of Figure \ref{fig:outliers}.
+While not all HMSFRs near that location are outliers, all of the outliers do seem to be near the end of the bar. 
+If this explanation is true, we would expect there to be closer agreement between HMFSRs and the KT-derived $\vlos$ map in the fourth quadrant. 
 
 \subsection{On the plausibility and implications of our gas streaming motions}
 While the exact shapes and magnitudes of the streaming motions in our velocity map depend strongly on the assumed galactic parameters (Galactocentric distance to the sun, rotation curve, solar motion relative to the rotation curve), there is no choice of Galactocentric distance, \emph{flat} rotation curve, and solar motion that can completely remove them (see Figure 4 pies).
