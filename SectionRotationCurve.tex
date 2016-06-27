@@ -1,6 +1,7 @@
 \section{Application -- Milky Way rotation curve}
 \label{sec:rotation_curve}
 
+\subsection{Rotation curve fitting}
 Since we have a measurement of the $\vlos$ component of the ISM's velocity field over a sizable chunk of the Milky Way disk, we can, in principle, derive the Galactic rotation curve.
 Comparing the result to other rotation curves would serve as a check of the quality of our $\vlos$ measurement on large spatial scales, complementing Section \ref{sec:KT-validation}.
 Deriving the rotation curve of the ISM from this many independent measurements would also be an advance over most earlier work, which was limited to using measurements of either geometrically special parts of the Galaxy, (e.g. \Clemens) or individual points with potentially non-uniform orbital phase coverage (e.g. \citealt{Reid:2009jb}, \Reid). 
@@ -16,9 +17,15 @@ where $V_\phi$ and $V_R$ are azimuthal (increasing clockwise) and radial (increa
 \RGC = \sqrt{R^2_\odot + d^2 - 2 R_\odot d \cos \glon}.
 \end{equation}
 Here, we have assumed that $V_\phi$ and $V_R$ depend only on $\RGC$, meaning that they are constant as a function of Galactic azimuth.
-We will also assume that there are no azimuthally constant radial flows, so $V_R(\RGC) \equiv 0\text{ km/sec}$.
+We will assume that there are no azimuthally constant radial flows, meaning that $V_R(\RGC) \equiv 0\text{ km/sec}$.
 
-Since we have measurements over large ranges in Galactic longitude and heliocentric distance, we can attempt to infer not only $V_\phi$ and $V_R$ but also $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$.
+Following, e.g., \citet{Reid:2009jb} and \citet{Bovy_2009}, we allow for non-zero azimuthal and radial velocity dispersions, parametrized as independent normal distributions. 
+The magnitude of the line-of-sight velocity dispersion corresponding to a given $\sigma_\phi$ and $\sigma_R$ is
+\begin{equation}
+text
+\end{equation}
+
+Since we have measurements over large ranges in Galactic longitude and heliocentric distance, we can attempt to infer not only $V_\phi(\RGC)$ and but also $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$. 
 
 
 \subsection{Rotation curve fitting}
