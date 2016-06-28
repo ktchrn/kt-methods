@@ -8,7 +8,7 @@ Deriving the rotation curve of the ISM from this many independent measurements w
 
 The line-of-sight velocity $\vlos$ at some $\glon$ and heliocentric distance $d$ in the Galactic plane (meaning at $\glat=0^\circ$) is 
 \begin{equation}
-\label{eqn:vlos_complete}
+\label{eqn:vlos_mean}
 \vlos(\glon, d) = \frac{V_\phi (\RGC) R_\odot \sin\glon}{\RGC} + 
 \frac{V_R (\RGC) \left(R_\odot \cos \glon + d (1 - 2 \cos^2 \glon)  \right) }{\RGC} - V_{\phi, \odot} \sin \glon + V_{R, \odot} \cos \glon,
 \end{equation}
@@ -18,16 +18,25 @@ where $V_\phi$ and $V_R$ are azimuthal (increasing clockwise) and radial (increa
 \end{equation}
 Here, we have assumed that $V_\phi$ and $V_R$ depend only on $\RGC$, meaning that they are constant as a function of Galactic azimuth.
 We will assume that there are no azimuthally constant radial flows, meaning that $V_R(\RGC) \equiv 0\text{ km/sec}$.
-
 Following, e.g., \citet{Reid:2009jb} and \citet{Bovy_2009}, we allow for non-zero azimuthal and radial velocity dispersions, parametrized as independent normal distributions. 
 In this parametrization, the line-of-sight velocity dispersion is a normal distribution with variance
 \begin{equation}
+\label{eqn:vlos_var}
 \sigma^2_\mathrm{los} = \left(\sigma_\phi \frac{R_\odot \sin \glon}{\RGC} \right)^2 + 
-\left(\sigma_R  \frac{R_\odot \cos \glon + d (1 - 2 \cos^2 \glon)}{\RGC} \right)^2
+\left(\sigma_R  \frac{R_\odot \cos \glon + d (1 - 2 \cos^2 \glon)}{\RGC} \right)^2,
 \end{equation}
+where $\sigma_\phi$ and $\sigma_R$ are the standard deviations of the azimuthal and radial velocity dispersions. 
 
-Since we have measurements over large ranges in Galactic longitude and heliocentric distance, we can attempt to infer not only $V_\phi(\RGC)$ and but also $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$. 
+Our ability to precisely constrain the terms in equations \ref{eqn:vlos_mean} and \ref{eqn:vlos_var} is determined by our $\glon$ and heliocentric distance ranges. 
+Since we have measurements over large ranges in both \glon and heliocentric distance, we can precisely infer not only $V_\phi(\RGC)$ and but also $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$. 
+Our ability to infer them \emph{accurately} depends on the accuracy of the $\vlos$ measurements and the correctness of the model.
+We have shown that the $\vlos$ measurements are likely to be reasonably accurate; the correctness of the model is less certain.
 
+The biggest potential pitfall is that we have assumed departures from circular rotation are spatially uncorrelated.
+The degree to which this is a problem depends on the scale on which the departures actually are correlated.
+If this scale is small compared to the size of the region we are modeling, we may overestimate $\sigma_\phi$ or $\sigma_R$, but should otherwise be fine.
+If the scale is smaller than the size of the region but of the same order, the region is likely to contain more departures in one direction (e.g., positive) than in the other (in this case, negative).
+Finally, if the scale and is larger than size of the region, the values we derive will not actually apply to the Galaxy -- they will apply to the departure region.
 
 \subsection{Rotation curve fitting}
 
