@@ -10,7 +10,7 @@ The line-of-sight velocity $\vlos$ at some $\glon$ and heliocentric distance $d$
 \begin{equation}
 \label{eqn:vlos_complete}
 \vlos(\glon, d) = \frac{V_\phi (\RGC) R_\odot \sin\glon}{\RGC} + 
-\frac{V_R (\RGC) \left(R_\odot \cos \glon + (1 - 2 \cos^2 \glon) d  \right) }{\RGC} - V_{\phi, \odot} \sin \glon + V_{R, \odot} \cos \glon,
+\frac{V_R (\RGC) \left(R_\odot \cos \glon + d (1 - 2 \cos^2 \glon)  \right) }{\RGC} - V_{\phi, \odot} \sin \glon + V_{R, \odot} \cos \glon,
 \end{equation}
 where $V_\phi$ and $V_R$ are azimuthal (increasing clockwise) and radial (increasing outward from the Galactic center) velocities, $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$ are the Galactocentric radius, azimuthal velocity, and radial velocity of the Sun, and $\RGC$ is the Galatocentric distance to the point specified by $\glon$ and $d$:
 \begin{equation}
@@ -20,9 +20,10 @@ Here, we have assumed that $V_\phi$ and $V_R$ depend only on $\RGC$, meaning tha
 We will assume that there are no azimuthally constant radial flows, meaning that $V_R(\RGC) \equiv 0\text{ km/sec}$.
 
 Following, e.g., \citet{Reid:2009jb} and \citet{Bovy_2009}, we allow for non-zero azimuthal and radial velocity dispersions, parametrized as independent normal distributions. 
-The magnitude of the line-of-sight velocity dispersion corresponding to a given $\sigma_\phi$ and $\sigma_R$ is
+In this parametrization, the line-of-sight velocity dispersion is a normal distribution with variance
 \begin{equation}
-text
+\sigma^2_\mathrm{los} = \left(\sigma_\phi \frac{R_\odot \sin \glon}{\RGC} \right)^2 + 
+\left(\sigma_R  \frac{R_\odot \cos \glon + d (1 - 2 \cos^2 \glon)}{\RGC} \right)^2
 \end{equation}
 
 Since we have measurements over large ranges in Galactic longitude and heliocentric distance, we can attempt to infer not only $V_\phi(\RGC)$ and but also $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$. 
