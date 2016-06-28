@@ -32,11 +32,16 @@ Since we have measurements over large ranges in both \glon and heliocentric dist
 Our ability to infer them \emph{accurately} depends on the accuracy of the $\vlos$ measurements and the correctness of the model.
 We have shown that the $\vlos$ measurements are likely to be reasonably accurate; the correctness of the model is less certain.
 
-The biggest potential pitfall is that we have assumed departures from circular rotation are spatially uncorrelated.
-The degree to which this is a problem depends on the scale on which the departures actually are correlated.
-If this scale is small compared to the size of the region we are modeling, we may overestimate $\sigma_\phi$ or $\sigma_R$, but should otherwise be fine.
-If the scale is smaller than the size of the region but of the same order, the region is likely to contain more departures in one direction (e.g., positive) than in the other (in this case, negative).
-Finally, if the scale and is larger than size of the region, the values we derive will not actually apply to the Galaxy -- they will apply to the departure region.
+The biggest potential pitfall is that we have assumed departures from circular rotation, or streaming motions, are spatially uncorrelated.
+The magnitude of the systematic errors this sort of model misspecification leads to is depends on the spatial scale on which the streaming motions actually are correlated.
+As the scale increases from sub-pixel (i.e. independent) to of order half the extent of the measurement region to of order the extent of the measurement region or larger, the inferred parameters become less and less accurate. 
+When the scale is non-negligible but still small compared to the measurement region, the dispersion widths $\sigma_\phi$ and $\sigma_R$ become unreliable.
+Once the scale becomes large enough that opposite deviations from circular rotation are not statistically likely to average out, all of the other parameters -- $V_\phi(\RGC)$, $R_\odot$, $V_{\phi, \odot}$, and $V_{R, \odot}$ -- become biased.
+Finally, once the scale becomes large enough that the entire measurement region is just looking at a single streaming motion, the streaming motion becomes part of the derived rotation curve.
+
+In figure \ref{fig:six_pies}a, there are clear and obvious streaming motions that extend over several kiloparsecs. 
+We can try to model this velocity field with a flat rotation curve, but we should expect the results to be quite biased.
+Indeed, if we model the nearest 5 kpc, 
 
 \subsection{Rotation curve fitting}
 
