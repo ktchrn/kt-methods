@@ -2,7 +2,6 @@ abstract.tex
 SectionIntroduction.tex
 figures/gas_compare3/gas_compare3.png
 SectionData.tex
-figures/KT_method_diagram_paper2/KT_method_diagram_paper2.png
 SectionKTMethods.tex
 figures/figure_/default_figure.png
 SectionKTChecking.tex
