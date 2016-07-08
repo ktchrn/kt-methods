@@ -41,26 +41,51 @@ Conversely, there are no outliers outside of the inner galaxy, regardless of whe
 
 \subsection{Unmet assumptions and their potential consequences}
 \label{sec:discussion-systematics}
-In section HMSFRS, we showed that, empirically, the map of $\vlos$ in PPD space is correct, at least at 93 points coincident with HMSFRs. 
-If we add in a few assumptions about the continuity and smoothness of the ISM velocity field, then the map of $\vlos$ in PPD space should also be approximately correct \emph{near} those points. 
-Here, the exact value of the spatial scale corresponding to this \emph{nearness} depends on how continuous and smooth the velocity field actually is.
-So long as this scale is not too short, we can conjecture that the residual velocity fields shown in figure PIES are also mostly correct, as the HMSFRs are distributed quite densely in two dimensions. 
-This is roughly where this ``correctness-by-association'' approach reaches its limits -- most of the full, three-dimensional $\vlos$ map is devoid of HMSFRs.
-In any case, this combination of a partial empirical confirmation with a loosely justified heuristic is not a replacement for an analysis and/or intuitive understanding of when, and ideally why, kinetic tomography works and fails.
+The procedure described in Section Method is based on four main assumptions about the relation between the two datasets and the shape of the ISM in PPDV space. 
+The first assumption is that the distribution of the ISM, in absolute units (e.g. number of protons), in PPD and PPV space is a linear scaling of the input reddening and gas line emission cubes.
+The second assumption is that PPD and PPV cubes are projections of the same region of PPDV space, or equivalently that all the ISM contained in one is also contained in the other.
+The third assumption is that the PPV cube can be reproduced by reprojecting the PPD cube -- ``lifting'' to PPDV space and projecting the result back down -- to PPV space.
+This lift is assumed to have a simple description, a one-to-one function convolved with a Gaussian kernel in velocity space.
+The fourth assumption is that voxels in PPD space that share a $\glon$ or $\glat$ boundary have similar central line-of-sight velocities.
 
-We unfortunately do not have this sort of analysis. 
-To conduct a formal (i.e. analytic) analysis, we would need a parametric description of the ISM, both as a distribution in PPDV space and as the corresponding set of reddening and gas line emission observations; to conduct a more empirical analysis, we would need to several galaxy-scale ISM simulations and the corresponding synthetic observations. 
-To the best our knowledge, there are no such parametric descriptions of the ISM.
-Performing galaxy simulations and producing synthetic reddening and gas line emission cubes is beyond the scope of this work.
+These assumptions fail to hold, to different degrees, in the actual case we are applying the procedure to. 
+The reddening-to-matter and $\atomHI$- and CO-to-matter conversion is not a single linear relationship. 
+The PPV cube includes matter on the far side of the Galaxy while the PPD cube stops at or before the level of the Galactic center.
+The PPV cube can not be a reprojection of the PPD cube if the two are not tracing the same matter, and furthermore there will be voxels in the PPD cube where the lift to PPDV space is not the simple one we have assumed.
+Finally, since the ISM can contain shocks, the $\vlos$ field can contain discontinuities.
 
-\subsection{On the plausibility and implications of our gas streaming motions}
-While the exact shapes and magnitudes of the streaming motions in our velocity map depend strongly on the assumed galactic parameters (Galactocentric distance to the sun, rotation curve, solar motion relative to the rotation curve), there is no choice of Galactocentric distance, \emph{flat} rotation curve, and solar motion that can completely remove them (see Figure 4 pies).
-If we limit ourselves to actually plausible galactic parameter sets (panels a, b, c of 4 pies) we see streaming motions on $\sim$ 1 kpc scales with magnitudes in excess of 15 km/sec. 
-This is true even if we restrict ourselves to the nearest 5 kpc and is true for any of the three plausible parameter sets. 
-These gas motions would be perfectly reasonable if the Milky Way were an obvious grand design spiral such as M83 (cite that nice Meidt paper w/the streaming motions). 
-Since it is not, we should first ask if they are astrophysically plausible in a a more humble sort of spiral galaxy such as our own. 
+Despite these unmet assumptions, the solution the procedure produces is remarkably accurate (see Section \ref{sec:KT-validation}).
+Evidently, the procedure is robust to some level of assumption-breaking. 
+The clustering of poorly-matched HMSFRs in the inner Galaxy, which is discussed in Section \ref{sec:discussion-catastrophic} suggests that there are parts of the sky where the assumptions fail strongly enough that the solution becomes noticeably less accurate. 
+As is also discussed in that section, it is unclear whether the more important effect is being at low $\glon$, where the pathlength difference between the PPD and PPV cubes is highest, or being near the tip of the Galactic bar, where the velocity field is expected to be particularly complex.
+In either case, sightlines in the inner Galaxy are more likely to not meet the assumptions behind KT than sightlines elsewhere. 
+The $\vlos$ field we derive for the inner 5 kpc or so of the Galaxy should be treated with caution.
 
-Not unexpectedly, we will argue that these spatially extended, high magnitude motions are indeed plausible.
+What we unfortunately do not know is whether there are other regimes in which our assumptions are violated strongly enough to produce systematic errors. 
+For example, if the more important of the two effects in the inner Galaxy is the mismatch between the PPD and PPV cubes, then we should also be more skeptical about the depths of molecular clouds, which can ``disappear'' from the PPD cube due to a drop in the map's completeness at high reddening.
+The opposite regime, diffuse atomic gas, is completely untested by the HMSFRs.
+Since diffuse gas occupies a higher fraction of the ISM by volume than dense gas, it would 
+
+
+POINTS:
+    - works pretty well
+    - fails in a specific spot
+    - the nature of that specific spot suggests some failure modes, and here they are
+    - our understanding of the point we just made is imperfect, and in particular we don't have a quantitative understanding of how solutions break down as these failed assumptions start piling up
+    - if we wanted to be quantitative about it and get uncertainties, biases, probabilities of failure (which we would need to have to be comfortable with publicly releasing the solution), we would do artificial data tests
+    - these artificial data tests would involve some pretty complicated steps, so we're not going to do them right now
+    - that does mean that we aren't really doing anything with regions that we haven't been able to check yet in this paper, will need to come up with new ways of checking them
+
+
+
+\subsection{On the astrophysical plausibility and implications of our gas streaming motions}
+\label{sec:discussion-plausibility}
+While the exact shapes and magnitudes of the streaming motions in our velocity map depend on the assumed galactic parameters (Galactocentric distance to the sun, rotation curve, solar motion relative to the rotation curve), there is no choice of Galactocentric distance, rotation curve, and solar motion that can completely remove them (see Section \ref{sec:rotation_discussion} and Figure \ref{fig:six_pies}).
+If we limit ourselves to rotation curves that are flat outside of the inner galaxy (panels a, b, e, f of Figure \ref{fig:six_pies}), we see streaming motions on $\sim$ 1 kpc scales with magnitudes in excess of 15 km/sec. 
+These gas motions would be perfectly reasonable if the Milky Way were an obvious grand design spiral such as M51 \citep{Meidt_2013}. 
+Since it is not, we should first ask if they are astrophysically plausible in a more humble sort of spiral galaxy such as our own. 
+
+We will argue that these spatially extended, high magnitude motions are indeed plausible.
 Within 2 kpc of the Sun, the RAVE survey has detected stellar streaming of comparable spatial extent and magnitude (S2012). They interpret these motions as evidence of the gravitational influence of the Perseus spiral arm.
 While the dynamics of stars and gas in s spiral potential will not necessarily be the same, this spiral-induced stellar streaming offers a an explanation for gas streaming of an essentially appropriate magnitude.
 
