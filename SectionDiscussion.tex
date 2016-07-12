@@ -66,24 +66,18 @@ The 30\% mentioned above is the error rate specifically among PPD voxels that co
 The error rate of an arbitrary inner Galaxy voxel could potentially be quite different. 
 While we may expect the error rate of a voxel that contains an HMSFR and others near it to be similar, this is merely a heuristic argument.
 This argument is also not useful for parts of the space that are not near HMSFRs.
-Much of the 
+The HMSFRs are all in dense molecular gas within a few tens of parsecs of the Galactic plane, meaning that there is very little we can say about the error rate in diffuse gas, especially at high Galactic latitudes. 
 
-To get a quantitative and more generally applicable estimate of the , we would need either a less density-biased set of independent (l, b, d, v) measurements or numerical experiments in which we artificially observe a model Galaxy ISM, reconstruct the $\vlos$ field using KT, and compare the reconstructed and actual $\vlos$ fields. 
-The first option is not , to our knowledge, available. 
-The second option is beyond the scope of this work, though it will likely be necessary to pursue it in the future. 
+To get a quantitative and more generally applicable estimate of the error rate, we would need either a less density-biased set of independent $\vlos(\glon, \glat, d)$ measurements or a set of artificial injection tests. 
+By an "artificial injection test", we mean a numerical experiment in which we artificially observe a model galaxy's ISM, reconstruct the $\vlos$ field from these artificial observations using KT, and compare the reconstructed and input model $\vlos$ fields. 
+To the best of our knowledge, there are no currently available catalogs of these sorts of less density-biased measurements, ruling out option one.
+The steps involved in artificial injection tests, particularly simulating galaxies at sufficiently high resolution for our purposes and producing artificial observations in a way that includes the non-trivial systematics in the actual observations, are complicated enough to put option two beyond the scope of this work.
 
-
-
-POINTS:
-    - works pretty well
-    - fails in a specific spot
-    - the nature of that specific spot suggests some failure modes, and here they are
-    - our understanding of the point we just made is imperfect, and in particular we don't have a quantitative understanding of how solutions break down as these failed assumptions start piling up
-    - if we wanted to be quantitative about it and get uncertainties, biases, probabilities of failure (which we would need to have to be comfortable with publicly releasing the solution), we would do artificial data tests
-    - these artificial data tests would involve some pretty complicated steps, so we're not going to do them right now
-    - that does mean that we aren't really doing anything with regions that we haven't been able to check yet in this paper, will need to come up with new ways of checking them
-
-
+Both of these options are plausible directions for future work. 
+The 1.527 $\mu$m diffuse interstellar band (DIB), for instance, has been mapped over much of the northern sky by the APOGEE survey \citep{2015ApJ...798...35Z}. 
+Observations of this DIB towards APOGEE stars with known distances could potentially be used to build catalogs or even maps of $\vlos(\glon, \glat, d)$ using an independent dataset. 
+Artificial injection tests are conceptually straightforward, though they do require a substantial investment of time and computational resources.
+While neither option is easy, we would argue that some combination of the two will be necessary before the KT-derived $\vlos$ map can be trusted away from the HMSFRs of \Reid.
 
 \subsection{On the astrophysical plausibility and implications of our gas streaming motions}
 \label{sec:discussion-plausibility}
