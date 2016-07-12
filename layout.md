@@ -11,6 +11,5 @@ figures/maser_pie/maser_pie_ann.png
 SectionRotationCurve.tex
 figures/six_pies2/six_pies.png
 SectionDiscussion.tex
-figures/tracer_syst_spatial_dist/tracer_syst_spatial_dist.png
 figures/HMSFR_outliers/HMSFR_outliers.png
 SectionConclusion.tex
