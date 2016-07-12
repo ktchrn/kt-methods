@@ -49,12 +49,29 @@ This lift is assumed to have a simple description, a one-to-one function convolv
 The fourth assumption is that voxels in PPD space that share a $\glon$ or $\glat$ boundary have similar central line-of-sight velocities.
 
 These assumptions fail to hold, to different degrees, in the actual case we are applying the procedure to. 
-The reddening-to-matter and $\atomHI$- and CO-to-matter conversion is not a single linear relationship. 
+The reddening-to-matter and $\atomHI$- and CO-to-matter conversion is not a single linear relationship due to both variations in physical quantities such as the dust-to-gas ratio and non-linearities in the transfer function from amount of matter to amount of reddening or flux (e.g. $\atomH$ self-absortion). 
 The PPV cube includes matter on the far side of the Galaxy while the PPD cube stops at or before the level of the Galactic center.
-The PPV cube can not be a reprojection of the PPD cube if the two are not tracing the same matter, and furthermore there will be voxels in the PPD cube where the lift to PPDV space is not the simple one we have assumed.
-Finally, since the ISM can contain shocks, the $\vlos$ field can contain discontinuities.
+The PPV cube can not be a reprojection of the PPD cube if the two are not tracing the same matter. 
+Furthermore, there will be voxels in the PPD cube where the lift to PPDV space is not the simple one we have assumed.
+Finally, since the velocity field of the ISM does not have to be smooth or even continuous, the first due to the influence of departures from axisymmetry such as the Galactic bar and the second due to the fact that the ISM can contain shocks.
 
-Despite these unmet assumptions, the solution the procedure produces is remarkably accurate (see Section \ref{sec:KT-validation}).
+Despite the many ways in which these assumptions can and do break, we have been able to empirically confirm that the solution is, in many places, correct (see Section \ref{sec:KT-validation}). 
+Evidently, the KT procedure is robust to some bending of the assumptions.
+Judging by the clustering of outlier HMSFRs in the inner Galaxy, there are some parts of the Galaxy where the assumptions are bent enough to start to cause problems.
+In particular, the inner Galaxy is particularly likely to have mismatches between the PPD and PPV and complicated, rapidly spatially variable velocity fields.
+Even there, KT does not completely and utterly fail -- the error rate is $\sim 30 \%$, not $\sim 100 \%$.
+The inner Galaxy falls into a gray region in the parameter space of assumption bending where there is just enough of it to noticeably, but not absolutely, degrade the solution quality.
+
+The 30\% mentioned above is the error rate specifically among PPD voxels that contain HMSFRs, which are not necessarily typical voxels. 
+The error rate of an arbitrary inner Galaxy voxel could potentially be quite different. 
+While we may expect the error rate of a voxel that contains an HMSFR and others near it to be similar, this is merely a heuristic argument.
+This argument is also not useful for parts of the space that are not near HMSFRs.
+Much of the 
+
+To get a quantitative and more generally applicable estimate of the , we would need either a less density-biased set of independent (l, b, d, v) measurements or numerical experiments in which we artificially observe a model Galaxy ISM, reconstruct the $\vlos$ field using KT, and compare the reconstructed and actual $\vlos$ fields. 
+The first option is not , to our knowledge, available. 
+The second option is beyond the scope of this work, though it will likely be necessary to pursue it in the future. 
+
 
 
 POINTS:
