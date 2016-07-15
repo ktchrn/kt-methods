@@ -8,6 +8,7 @@ figures/figure_/default_figure.png
 SectionKTChecking.tex
 figures/cl_gd_smooth_maser_comp/default_figure.png
 figures/maser_pie/maser_pie_ann.png
+subsection_Catastrophic_outliers_label_sec__.tex
 SectionRotationCurve.tex
 figures/six_pies2/six_pies.png
 SectionDiscussion.tex
