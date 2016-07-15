@@ -1,44 +1,6 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Catastrophic outliers}
-\label{sec:discussion-catastrophic}
-In Section \ref{sec:KT-validation}, we showed that the measured and KT-derived $\vlos$ values  of 94 of the 99 \Reid HMSFRs agree with each other. 
-In this section, we discuss the five HMSFRs where they do not agree.
-
-Panel (a) of Figure \ref{fig:outliers} shows the distribution of standardized residuals of the full 99 HMSFR sample along with a standard normal distribution that has been scaled to integrate to the number of HMSFRs.
-There are five HMSFRs, which have been indicated on the figure in orange, that are clearly separated from the rest. 
-These are the HMSFRs for which we consider the measured and KT-derived $\vlos$ values to disagree.
-We will refer to these five as the outliers.
-
-We have not been able to find an obvious reason for why these five HMSFRs, specifically, are outliers. 
-None of their properties are extreme -- they are not all clumped together; they are not particularly close to or far from the Sun; the total dust and gas columns along their sightlines are typical for HMSFRs in their vicinity; they are reasonably close to their nearest neighbors, none of which are outliers; the differences between their measured $\vlos$ values and those of their close neighbors are reasonable, as are the differences between the magnitudes of their velocity three-vectors; they do not all sit in the same spiral arm (\Reid). 
-There is no clear distinction between an outlier and its non-outlier neighbors. 
-
-While there does not appear to be a way to predict whether a specific HMSFR will definitely be an outlier, we have found that HMSFRs with $0^\circ < \glon < 35^\circ$ and Galactocentric radii ($\RGC$) between 3 and 5 kpc are more likely to be outliers. 
-The distributions of outlier and non-outlier $\glon$ and $\RGC$ are shown in panels (b) and (c) of Figure \ref{fig:outliers}, and the locations of the outlier HMSFRs and some nearby non-outliers are shown in panel (d).
-By visual inspection, the outliers' $\glon$ and $\RGC$ distributions clearly deviate from those of the full sample.
-
-We can quantify this deviation by assuming that any HMSFR is equally likely to be one of the five outliers and computing the probability of finding all five in a randomly chosen subsample of the same sizes as one of our two selections.
-Since a single HMSFR can not be present in a sample twice, the appropriate distribution to use for this calculation is the hypergeometric distribution, which assumes that the subsample is chosen without replacement.
-The probabilities of finding all five outliers in a random subsample the size of the $\glon$ and $\RGC$ selections are both well below 1\%.
-
-Since every HMSFR in the $\RGC$ selection is also in the $\glon$ selection, this calculation does not tell us which selection is responsible for the enhance outlier probability. 
-To try to differentiate between the two, we can repeat the above exercise with the $\RGC$ selection as the subsample and the $\glon$ selection, rather than the full set of 99 HMSFRs, as the population. 
-The probability of finding all five outliers in a random 17-element subsample of the 31-element $\glon$ selection is about 4\%. 
-This probability is low, certainly low enough to suggest that there may be an enhancement in the outlier rate in the $\RGC$ selection over the $\glon$ selection's rate, but not enough for that to be a strong conclusion.
-This is especially true considering that we have entirely neglected the distance and outlier/non-outlier classification uncertainties.
-
-We are trying to distinguish between the two selections because they suggest different causal explanations for the increased likelihood of being an outlier. 
-If being in the $\glon$ selection is responsible for most of the effect, the likely cause is increased line-of-sight confusion. 
-The closer to $\glon$ of $0^\circ$ a sightline passes, the more matter it typically intersects near the Galactic center and, assuming the Galactic disk is roughly circular, the more matter it passes through on the opposite side of the Galaxy. 
-If instead being in the $\RGC$ selection is what matters, the cause is likely to be the complexity of ISM dynamics near the Galactic center.
-The distance resolution of the PPD cube declines with distance, so it would not necessarily be surprising if we were unable to spatially resolve flows with small spatial scales.
-The end of the Galactic bar, coincidentally, is generally considered to fall right in the middle of the five outliers \cite{2016arXiv160207702B}.
-
-If we treat sightlines with HMFSRs as typical, the implied catastrophic failure rate in the inner galaxy is somewhere in the vicinity of 30\%. 
-Conversely, there are no outliers outside of the inner galaxy, regardless of whether that is defined as an $\glon$ range or as a $\RGC$ range.
-
 \subsection{Unmet assumptions and their potential consequences}
 \label{sec:discussion-systematics}
 The procedure described in Section Method is based on four main assumptions about the shape of the ISM in PPDV space and the relation between the two input datasets.
