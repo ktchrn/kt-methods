@@ -6,7 +6,7 @@ figures/KT_method_diagram_paper3/KT_method_diagram_paper3.png
 SectionKTMethods.tex
 figures/figure_/rot_curve_comp.png
 SectionKTChecking.tex
-figures/cl_gd_smooth_maser_comp/default_figure.png
+figures/cl_gd_smooth_maser_comp/maser_comparison.png
 figures/maser_pie/maser_pie_ann.png
 subsection_Catastrophic_outliers_label_sec__.tex
 figures/HMSFR_outliers/HMSFR_outliers.png
