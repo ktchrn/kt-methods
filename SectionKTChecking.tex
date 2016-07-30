@@ -1,23 +1,27 @@
 \subsection{Checking the KT solution}
 \label{sec:KT-validation}
 
-We have developed a procedure for deriving the distribution of interstellar matter in position-position-distance-velocity (PPDV) space from measurements of its distribution in position-position-distance (PPD) and position-position-velocity (PPV) space. 
-The technical term for deriving a multi-dimensional distribution from lower-dimensional measurements is tomographic reconstruction; in this context, lower-dimensional measurements are called projections. 
-As should be intuitively clear, tomographic reconstruction from two projections is, in general, not possible -- there are many more independent variables than observational constraints. 
-Our procedure for solving our specific case of the tomographic reconstruction problem is based around exploiting some simplifying assumptions about the structure of the ISM in PPDV space to reduce the number of independent variables.
+The CITET REID HMSFRs (see Section DATA.3) are embedded in and, presumably, moving with dense molecular gas, and can therefore serve as point-probes of the ISM's velocity field. 
+By comparing the HMSFRs' observed line-of-sight velocities to those a given technique assigns to their locations in PPD space, we can determine the accuracy of that technique. 
+By comparing the accuracies of the regularized and unregularized KT solutions, we can get a sense of the effectiveness of our regularization scheme. 
+By comparing the accuracy of both KT solutions to that of the CITE CLEMESN non-flat rotation curve, we can get a sense of how much accuracy moving beyond axisymmetry can add to our description of the ISM. 
 
-For motivation, we first examine the structural assumptions behind a common technique for finding solutions to the even more underdetermined problem of reconstructing a PPDV-space ISM distribution from PPV-space measurements alone. 
-The  technique we are referring to here is the widely known kinematic distance method (e.g. \citealt{Levine_2006}), which assigns distances to observed line-of-sight velocities based on an assumed Galactic rotation curve and geometry. 
-While the kinematic distance technique is usually presented as a way of converting PPV-space distributions to PPD-space, rather than PPDV-space, distributions, its underlying assumptions make the two equivalent. 
-These assumptions can be combined into a single statement: (1) a location in PPD space can be assigned a single line-of-sight velocity (2) according to an assumed rotation curve and Galactic geometry. 
-From these assumptions it follows that knowing the PPD-space distribution of the ISM is equivalent to knowing its PPDV-space distribution. 
+While the $\glon$ and $\glat$ of an HMSFR from CITET REID are known to effectively arbitrary precision, its distance is only known to within about 10\%. 
+To take this distance uncertainty into account when assigning a line-of-sight velocity to an HMSFR based on a KT solution, we take an average, weighted by the HMSFRs distance probability density function, of the KT solution's $\vlos(d)$ profile towards the HMSFR's $\glon$ and $\glat$. 
+A similar procedure gives us an estimate of the uncertainty, expressed as a standard deviation, of this $\vlos$ value. 
+When computing the line-of-sight bvelocity of the HMSFR according to a rotation curve, we ignore this distance uncertainty and simply use the best-fit distance. 
 
-We have PPD-space measurements in addition to PPV-space measurements, allowing us to make a more relaxed version of this assumption. 
-Our version is that (1) a parcel of interstellar matter in PPD space can be assigned a Gaussian distribution of line-of-sight velocities (2) whose center is within a fixed range of the line-of-sight velocity predicted by an assumed rotation curve and Galactic geometry. 
-Here, a "parcel" of interstellar matter refers to the contents of a single PPD voxel. 
-For each voxel in observed PPD cube, we aim to assign a central line-of-sight velocity $\vlos$ and a line-of-sight Gaussian velocity width $\sigma_v$. 
-With these assumptions, a description of the ISM in PPDV space consists of a description of its PPD-space distribution (the observed PPD cube), a line-of-sight central velocity cube in PPD space ($\vlos(\glon, \glat, d)$), and a line-of-sight velocity width cube in PPD space ($\sigma_v (\glon, \glat, d)$). 
-Thus we have reduced our original problem of finding a PPDV cube which is consistent with our observed PPD and PPV cubes to finding a $\vlos(\glon, \glat, d)$ and $\sigma_v(\glon, \glat, d)$ pair consistent with our PPV observations.
+We show a comparison of the HMSFRs' measured line-of-sight velocities and line-of-sight velocities assigned based on the CITET CLEMENS rotation curve, unregularized KT, and regularized KT in Figure (maser comp). 
+There is a very clear improvement from a rotation-curve to either version of KT and a slight but noticeable improvement from unregularized to regularized KT. 
+To get a crude quantitative estimate of the effect of regularization, we can compute the reduced $\Chi$-squared values of the two sets of velocity estimates. 
+If we assume the regularization parameter counts against the number of degrees of freedom, the reduced $\Chi$-squared values of the unregularized and regularized KT solutions are 5 and 3, respectively. 
+
+Much of the total discrepancy between the regularized KT solution and the HMSFR measurements is driven by 5 catastrpphic outliers. 
+If we remove these 5 outliers, leaving 94 HMSFRs, the reduced $\Chi$-squared values of the unregularized and regularized KT solutions drop to 4 and 1.3, respectively. 
+We consider the advantage of regularzied over unregularized KT to be sufficient to adopt the regularized KT solution as \emph{the} KT solution, and will refer to it as such below.
+
+At the positions of 94 of 99 HMSFRs, at least, KT performs remarkably well. 
+Next, we discuss the 5 catastrophic outliers.
 
 %We have used the unregularized and regularized versions of the kinetic tomography technique to derive PPPV 4-cubes for the region of the galactic plane with $0^\circ < \ell < 220^\circ$ and $-10^\circ < b < 10^\circ$. %We will refer to these two solutions by the names of their methods, i.e. as the UKT and RKT solutions.
 %These solutions can be thought of as either one 4-cube of the ISM density in PPPV space or as a set of three 3-cubes of ISM density, central velocity ($v_{los}$), and velocity dispersion in PPP space. One benefit of the ``three 3-cubes'' representation is that the accuracy of each of the three 3-cubes can be checked separately. The accuracy of the 3-cube of ISM density map is discussed in Schlafly+. In this section, we check the accuracy of the unregularized and regularized $v_{los}$ 3-cubes against the R14 dataset, which is described in section \ref{sec:data-HMSFR}. We find that both $v_{los}$ 3-cubes represent clear improvements over flat and \cite{Clemens_1985} rotation curves, and that the regularized solution is statistically consistent with the R14 measurements, with the exception of a handful of outliers. 
