@@ -40,9 +40,9 @@ The standard deviation of the distribution of line-of-sight velocities about thi
 \sigma^2_\mathrm{los} = \sqrt{\left(\sigma_\phi \frac{\RGC_{,\odot} \sin \glon}{\RGC} \right)^2 + 
 \left(\sigma_R  \frac{\RGC_{,\odot} \cos \glon + d (1 - 2 \cos^2 \glon)}{\RGC} \right)^2}.
 \end{equation}
-To these model $\hat{\vlos}(\glon, d)$ values, we compare the mass-weighted $\glat$-average of the KT-derived $\vlos(\glon, \glat, d)$ cube for $-2.5 < \glat < + 2.5$. 
+To these model $\hat{\vlos}(\glon, d)$ values we compare the mass-weighted $\glat$-average of the KT-derived $\vlos(\glon, \glat, d)$ cube for $-2.5 < \glat < + 2.5$. 
 Our likelihood function for a single $(\glon, 0\deg, d)$ voxel is a Gaussian with mean $\hat{\vlos}(\glon, d)$ and standard deviation $\sigma_\mathrm{los}(\glon, d)$.
-The full likelihood is the product of the single-voxel likelihood over all $(\glon, 0\deg, d)$ voxels.
+The full likelihood function is the product of the single-voxel likelihood functions over all $(\glon, 0\deg, d)$ voxels.
 
 We fit two sets of models, one in which we assume a flat rotation curve and let the Solar parameters vary and one in which we assume a piecewise-linear rotation curve with breaks every 0.25 kpc and fix the solar parameters to $\RGC=8.1$ kpc CITEP E.G. BOVY, $v_{\phi, \odot}=TK$, and $v_{R, \odot}=TK$ (CITE THAT STANDARDS PAPER THAT'S CITED IN IBID).
 We use different portions of the $\vlos(\glon, 0\deg, d)$ cube for the different models. 
@@ -51,13 +51,21 @@ Motivated by the third consideration, our fiducial ranges for the flat rotation 
 In the piecewise-linear rotation curve case, the first and second considerations are more important, so we use DRANGE TK and RGCRANGE TK, which translates to a non-separable $\glon$-$d$ constraint.
 
 For the fiducial $\glon$- and $d$-ranges, our results for the flat rotation curve model are $V_\phi=TK \pm TK$, $\sigma_\phi = TK \pm TK$, $\sigma_R = TK \pm TK$, $R_\odot = TK \pm TK$, $v_{\phi, \odot} = TK \pm TK$, and $v_{R, \odot} = TK \pm TK$.
-The $V_\phi$ and $R_{\odot}$ values are in tention with the IAU-recommended values, as well as the results of CITET BOVY and CITET REID, if we take our quoted uncertanties to be accurate. 
+The $V_\phi$ and $R_{\odot}$ values are in tension with the IAU-recommended values, as well as the results of CITET BOVY and CITET REID, if we take our quoted uncertanties to be accurate. 
 If we vary the outer limit of the $d$-range used in the fit from TK to TK, $V_\phi$ varies from TK to TK and $R_\odot$ varies from TK to TK. 
 This variation is smooth as a function of the outer limit of the $d$-range, indicating that the variation is not driven by a small problem region.
-We believe that the cause of this variation is global model misspecification --- we have assumed that deviations from the rotation curve are spatially uncorrelated when they are in fact correlated, an over quite large spatial scales. 
+We believe that the cause of this variation is global model misspecification --- we have assumed that deviations from the rotation curve are spatially uncorrelated when they are in fact correlated, and on spatial scales that are of order the spatial extent of the $\vlos(\glon, 0\deg, d)$ measurements.
 We will discuss this issue further in Section \ref{sec:rotation_discussion}. 
 
-The best-fit piecewise-linear rotation curve is shown in Figure \ref{rotation_curves}, with the CITET CLEMENS rotation curve for comparison. 
+Our best-fit piecewise-linear rotation curve is shown, along with the CITET CLEMENS rotation curve for comparison, in Figure \ref{fig:rotation_curves}. 
+Both curves can be qualitatively described as 3 ``bumps'' or ``wiggles'' about a mean circular velocity. 
+Pointwise, the two curves agree to within about 10 km/sec. 
+In terms of the qualitative description, the mean circular velocities and the locations of the bumps in the two curves are similar, while the amplitudes of the bumps are greater for the KT-derived rotation curve. 
+The two curves are not expected to be strictly identical, since they are fit to $\vlos$ datasets with different spatial coverages.
+
+
+
+The best-fit piecewise-linear rotation curve is shown in Figure \ref{fig:rotation_curves}, with the CITET CLEMENS rotation curve for comparison. 
 The two rotation curves agree to within about 10 km/sec over the full $\RGC$ range shown.
 Both rotation curves can be informally described as a series of about three coherent fluctuations about a mean level. 
 The differences between the two curves are mostly differences in the amplitudes of these fluctuations, and can likely be attributed to the fact that we have used data from parts of the Galaxy that were not considered in CITET CLEMENS. 

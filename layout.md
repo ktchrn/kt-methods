@@ -4,12 +4,12 @@ figures/gas_compare3/gas_compare3.png
 SectionData.tex
 figures/KT_method_diagram_paper3/KT_method_diagram_paper3.png
 SectionKTMethods.tex
-figures/figure_/KT_and_Clemens_rcurves.png
-SectionKTChecking.tex
 figures/cl_gd_smooth_maser_comp/maser_comparison.png
+SectionKTChecking.tex
 figures/maser_pie/maser_pie_ann.png
-subsection_Catastrophic_outliers_label_sec__.tex
 figures/HMSFR_outliers/HMSFR_outliers.png
+subsection_Catastrophic_outliers_label_sec__.tex
+figures/figure_/KT_and_Clemens_rcurves.png
 SectionRotationCurve.tex
 figures/six_pies2/six_pies.png
 SectionDiscussion.tex
