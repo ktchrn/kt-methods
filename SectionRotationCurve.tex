@@ -1,22 +1,23 @@
 \section{The rotation curve of the Milky Way and spatially coherent streaming motions}
 
-The velocity field shown in the previous section has many, kpc-scale velocity structures, having subtracted the largest scale: a canonically flat circular velocity curve, $V_c\left(R\right) \equiv V_c$. We refer to $V_c$ as a flat rotation curve. A flat rotation curve is the first of the two common ways to describe the largest scale feature of a galactic velocity field. The second common way is to measure the azimuthally averaged azimuthal velocity of a galaxy as a function of radius. We call this a general rotation curve, $V_\phi\left(R\right)$. Some of the features we see as residuals from a flat rotation curve (e.g. Figure 4) become part of the bumps and wiggles of a general rotation curve. In the following sections we both compare our results to previous measurements of $V_\phi\left(R\right)$, and derive a value for $V_c$. We find consistency between our measurement of $V_\phi\left(R\right)$ and \Clemens. We also also find that values 
-
 \label{sec:rotation_curve}
+In this section, we analyze the KT-derived $\vlos$ field in the Galactic plane.
+The primary purpose of this analysis is to establish that on a coarse scale, we basically agree with the Milky Way kinematics literature. 
+This serves as a complement to the previous section, where we established that we agree with fine-grained measurements of dense HMSFRs.
+
+We first decompose the in-plane $\vlos$ field into a rotation curve and residual velocity field under different assumptions about the form of the rotation curve and compare the results to results from the Milky Way kinematics literature.
+We find that the magnitude and spatial scale of spatially coherent streaming motions is such that we cannot reliably fit a rotation curve without a model for these streaming motions.
+When we fit a non-flat rotation curve to the in-plane $\vlos$ field, these streaming motions are incorporated into the rotation curve.
+This non-flat rotation curve is consistent with the \citet{Clemens} rotation curve, which also describes large-scale streaming motions.
+When we instead attempt to fit a flat rotation curve while assuming residuals from flat rotation are spatially uncorrelated, we get results that change dramatically depending on which subset of the $\vlos$ field we use and which are inconsistent with estimates of the Galactic rotation rate from the literature.
+
+Next, we discuss the residual velocity field.
+We compare it to the two-dimensional residual velocity field of \citet{BrandBlitz} and find that the two agree.
+We associate some of the clear large-scale streaming motions with features discussed in \citet{Clemens}, \citet{McClureGriffithsEarly}, and \citet{McClureGriffithsLate}. 
+Finally, we give a rough estimate of the spatial scale of the strongest fluctuations and compare this to power spectra of velocity fluctuations derived from measurements of gas \citep{Clemens,McClureGriffithsLate} and stellar kinematics \citep{Bovy2015}. 
 
 \subsection{The rotation curve}
 \label{sec:rotation_fit}
-%The Milky Way ISM's velocity field can be considered a as a composition of the Galactic rotation curve (the magnitude of the Galaxy's rotational velocity as a function of Galactic radius) and streaming motions. 
-%The rotation curve contains information about the radial profile of the Galaxy's mass distribution and streaming motions can be indicative of perturbations in the Galactic potential, such as spiral arms and the bar.
-%Since there are many derivations of the Galactic rotation curve in the literature, we can also use it as a check of the accuracy of our $\vlos$ map on large spatial scales, complementing the previous section's validation on small spatial scales.
-
-%We measure the Galactic rotation curve by comparing the observed $\vlos(\glon, d)$ to line-of-sight velocities corresponding to different combinations of rotation curves and Galactic parameters in the Galactic plane (meaning at $\glat=0^\circ$): 
-%The line-of-sight velocity $\vlos$ at a Galactic longitude $\glon$ and heliocentric distance $d$ in the Galactic plane (meaning at $\glat=0^\circ$) is 
-The velocity field of a component of the Galaxy is a superposition of the Galactic circular velocity curve and that component's streaming motions. 
-The circular velocity curve is determined entirely by the radial profile of the Galactic mass distribution, while streaming motions are caused by perturbations in the Galactic potential and dynamical effects, whose specifics can vary from Galactic component to Galactic component. 
-To distinguish the theoretical quantity, the circular velocity curve, from the empirical quantity, the azimuthal average of the azimuthal component of the velocity field, we will call the later a \emph{rotation curve}. 
-This section is dedicated to measuring the rotation curve of the Milky Way's ISM from the KT-derived $\vlos(\glon, \glat, d)$ 3-cube and comparing the results to other Milky Way rotation curves. 
-We will discuss streaming motions and the relation between the Milky Way ISM's rotation curve and circular velocity curve in Section \ref{sec:rotation_discussion}.
 
 We assume that the global motion of the Milky Way ISM can be entirely described by a rotation curve, $V(\RGC)$. 
 In particular, we assume that there are no global radial flows and that azimuthal and radial departures from the rotation curve average to zero over the Galaxy.
@@ -100,6 +101,11 @@ The differences that are present can most likely be explained by differences in 
 
 \subsection{Spatially coherent streaming motions}
 \label{sec:rotation_discussion}
+The Milky Way velocity field has structure on four main spatial scales --- the size of the Galaxy i.e. the rotation curve; $\approx 2$ kpc (e.g. CITEALT CLEMENS for atomic and molecular gas, )
+We are looking for motions with spatial scales larger than of order 100 parsecs.
+[studies such as Clemens85, B&B93, Bovy+15, McG+16 have found high-amplitude motions on scales of about 200 pc, 2 kpc, and the Galaxy. there's also cloud-cloud motions, seen in high-density tracers (Clemens85). vertical averaging may have washed some stuff out; also most voxels have a long side length > 200pc. so, we don't expect to cleanly detect the 200 pc motions or cloud-cloud motions.]
+
+
 In Figure \ref{fig:six_pies}, we show residuals between the $\vlos$ measurements and (panel b) the flat rotation curve derived from the nearest 4 kpc and (panel c) the piecewise-linear rotation curve. 
 For comparison, we also show residuals between the $\vlos$ measurements and (panel a) our fiducial flat rotation curve and Galactic parameters, (panel d) the \Clemens non-flat rotation curve, (panel e) the \cite{2012ApJ...759..131B} flat rotation curve, (panel f) and the \Reid A5 model flat rotation curve.
 In every panel, there are obvious, multi-kpc regions with consistent non-zero velocity residuals.
